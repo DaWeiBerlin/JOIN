@@ -1,7 +1,7 @@
-@font-face {
+/* @font-face {
     font-family: Roboto;
-    src: url(fonts/Inter-VariableFont_slnt\,wght.woff2);
-}
+    src: url(assets/fonts/Inter.woff2);
+} */
 
 .drag-area {
     height: 500px;
@@ -18,7 +18,7 @@
 body{
     background-color: #f6f7f8;
     margin: 0;
-    font-family: Roboto;
+    /* font-family: Roboto; */
     overflow: hidden;
 }
 
@@ -27,6 +27,208 @@ body{
     border-radius: 50%;
     display: flex;
     margin-left: 20px;
+}
+
+#ContactArea{
+    position: absolute;
+    left: 230px;
+    top: 90px;
+}
+
+#AddNewContactButton{
+    cursor: pointer;
+    background-color: #2a3647;
+    height: 50px;
+    width: 200px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px;
+    border-radius: 10px;
+    font-size: 18px;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+#AddNewContactButton img{
+    width: 30px;
+    height: 30px;
+}
+
+#contactModal{
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.403);
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#contactSheet{
+    width: 80%;
+    height: 50%;
+    background-color: white;
+    border-radius: 20px;
+    display: flex;
+}
+
+#UserLogo{
+    bottom: 8%;
+    position: relative;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-left: 8%;
+    background-color: orange;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#userText{
+    color: white;
+    font-size: 50px;
+}
+
+textarea:focus{
+    outline: unset;
+    
+}
+
+#blueLine {
+    position: absolute;
+    top: 64%;
+    width: 20%;
+    height: 10px;
+    left: 5%;
+    background-color: #29abe2;
+}
+
+.ContactLogo{
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    z-index: 5;
+    position: relative;
+    top: 1px;
+    right: 2px;
+}
+
+#NameContainer{
+    display: flex;
+    justify-content: flex-end;
+    width: 68%;
+    height: 40px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+#EmailContainer{
+    display: flex;
+    justify-content: flex-end;
+    width: 68%;
+    height: 40px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+#PhoneContainer{
+    display: flex;
+    justify-content: flex-end;
+    width: 68%;
+    height: 40px;
+    border-radius: 10px;
+    margin-bottom: 50px;
+}
+
+#FillInArea{
+    top: 80px;
+    right: 0px;
+    position: absolute;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    width: calc(100% - 49px);
+    padding-right: 50px;
+
+}
+
+#ButtonArea {
+    position: relative;
+    width: 60%;
+    right: 2px;
+    bottom: 30px;
+}
+
+#close{
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    top: 30px;
+    right: 50px;
+    cursor: pointer;
+}
+
+#userText img{
+    position: relative;
+    width: 50px;
+    height: 50px;
+    top: 6px;
+}
+
+#Name {
+    position: relative;
+    height: 24px;
+    width: calc(100% + 40px);
+    border: #d1d1d1 2px solid;
+    position: relative;
+    top: 0px;
+    left: 40px;
+    padding-right:40px;
+}
+
+#Name:active{
+    border:#29abe2;
+}
+
+#Email{
+    position: relative;
+    height: 24px;
+    width: calc(100% + 40px);
+    border: #d1d1d1 2px solid;
+    position: relative;
+    top: 0px;
+    left: 40px;
+    padding-right:40px;
+}
+
+#Phone{
+    position: relative;
+    height: 24px;
+    width: calc(100% + 40px);
+    border: #d1d1d1 2px solid;
+    position: relative;
+    top: 0px;
+    left: 40px;
+    padding-right:40px;
+}
+
+#delete {
+    width: 100px;
+    height: 50px;
+    margin-top: 20px;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+#save{
+    width: 100px;
+    height: 50px;
+    cursor: pointer;
 }
 
 #header{
@@ -180,8 +382,7 @@ textarea{
     border: none;
     height: 24px;
     width: 188px;
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
+    border-radius: 10px;
     position: relative;
     bottom: 21px;
     font-size: 20px;
@@ -257,4 +458,26 @@ textarea{
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+#LeftSideContactSheet{
+    width: 37.5%;
+    height: 100%;
+    background-color: #2a3647;
+    background-size:cover;
+    background-position: center;
+    z-index: 10;
+    position: relative;
+    border-bottom-left-radius: 15px;
+    border-top-left-radius: 15px;
+}
+
+
+#rightSideContactSheet{
+    width: 62.5%;
+    display: flex;
+    position: relative;
+    justify-content: start;
+    align-items: center;
+    margin-left: 0%;
 }

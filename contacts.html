@@ -4,49 +4,197 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacts</title>
-    <link rel="icon" type="image/x-icon" href="/./assets/img/Logo for Favicon construction.svg">
+    <link rel="icon" type="image/x-icon" href="/./assets/img/LogoforFaviconconstruction.svg">
     <script src="./js/contacts.js"></script>
     <script src="js/template.js"></script>
-    <link rel="stylesheet" href="/styles/contacts.css">
-    <link rel="stylesheet" href="/assets/fonts/fonts.css">
-    <link rel="stylesheet" href="/styles/root.css">
-    <link rel="stylesheet" href="boardStyle.css">
+    <link rel="stylesheet" href="styles/boardStyle.css">
+    <script >
+        let contacts=[{
+            A : [{
+                    Vorname:"Anna",
+                    Nachname:"Schmidt",
+                    Email:"anna.schmidt@gmx.de",
+                    Telefonnummer: "061262733",
+                    Farbe:"Grün",
+                },
+                {
+                    Vorname:"Anita",
+                    Nachname:"Schmidt",
+                    Email:"anita.schmidt@gmx.de",
+                    Telefonnummer: "061262733",
+                    Farbe:"Grün",
+                }],
+            B : [{}],
+            C : [{}],
+            D : [{}],
+            E : [{}],
+            F : [{}],
+            G : [{}],
+            H : [{}],
+            I : [{}],
+            J : [{}],
+            K : [{}],
+            L : [{}],
+            M : [{}],
+            N : [{}],
+            O : [{}],
+            P : [{}],
+            Q : [{}],
+            R : [{}],
+            S : [{}],
+            T : [{}],
+            U : [{}],
+            V : [{}],
+            W : [{}],
+            X : [{}],
+            Y : [{}],
+            Z : [{}],
+            }
+        ]
+        
+        function deleteContact(){
+            document.getElementById("Name").value = ""
+            document.getElementById("Email").value = ""
+            document.getElementById("Phone").value = ""
+            document.getElementById("userText").innerHTML = ""
+        }
+
+        let color;
+        function saveContact(){
+            let Name = document.getElementById("Name").value
+            let EB = Name.charAt(0).toUpperCase()
+            console.log(EB)
+            let Email = document.getElementById("Email").value
+            let Phone = document.getElementById("Phone").value
+            contacts[0][EB].push({
+                    Name:Name,
+                    Email:Email,
+                    Telefonnummer:Phone,
+                    Farbe:color
+            })
+            document.getElementById("Name").value = ""
+            document.getElementById("Email").value = ""
+            document.getElementById("Phone").value = ""
+            document.getElementById("userText").innerHTML = `<img src='assets/img/Joinlogovector.svg'>`
+        }
+
+        // for(let i = 0; i<contacts.length;i++){
+        //     document.getElementById("contacts")
+        // }
+        
+        function openContactSheet(){
+            let letters = '0123456789ABCDEF';
+            color = '#';
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            console.log(color)
+            document.getElementById("UserLogo").style.backgroundColor = color
+            document.getElementById("userText").innerHTML = `<img src='assets/img/Joinlogovector.svg'>`
+            if(document.getElementById("contactModal").style.display == "none"){
+                document.getElementById("contactModal").style.display = "flex"
+            }
+        }
+
+        function closeb(){
+            console.log(document.getElementById("contactModal").style.display)
+            if(document.getElementById("contactModal").style.display == "flex"){
+                document.getElementById("contactModal").style.display = "none"
+            }
+        }
+
+        function changeBorder(container){
+            document.getElementById(container).style.borderBlockColor = "#29abe2"
+        }
+
+        let firstLetter;
+        let secondLetter;
+        let condition2 = true
+        
+        function renderUser(){
+            let userName = document.getElementById("Name").value
+            if(userName.length == 1){
+                condition2 = true
+                firstLetter = ""
+            }
+            console.log(condition2)
+            if(condition2 == true){
+                firstLetter = userName.charAt(0).toUpperCase()
+                console.log(firstLetter)
+                condition2 = false
+            }
+            userName = userName.trimEnd()
+            let last = userName.lastIndexOf(" ")
+            if(last == -1){
+                secondLetter = ""
+            }else{
+                secondLetter = userName.charAt(last+1)
+            } 
+            if(userName.length == 0){
+                firstLetter = ""
+            }
+            console.log(userName.length)
+            if(userName.length == 0){
+                document.getElementById("userText").innerHTML = `<img src='assets/img/Joinlogovector.svg'>`
+            }else{
+                document.getElementById("userText").innerHTML = `${firstLetter}${secondLetter}`
+            }
+            
+        }
+        
+        
+    </script>
 </head>
-<body onload="init(), includeHTML()">
-    <!-- TEST -->
-    <div w3-include-html="header.html"></div>
-    <div class="contact-header">
-        <h1>Contacts</h1>
-        <hr>
-        <p>Better with a team</p>
+<body>
+    <div id="Navbar">
+        <div id="LogoLeft"><img src="assets/img/LogoLeft.png" alt="JoinLogo"></div>
+        <div id="NavLeft">
+            <div class="NavGap hover"><div><img src="assets/img/SummaryLogo.png" alt="Summary Logo"></div><div>Summary</div></div>
+            <div class="NavGap hover"><div><img src="assets/img/AddTaskLogo.png" alt="Add Tasks Logo"></div><div style="width: 80px;">Add Task</div></div>
+            <div class="NavGap hover"><div><img src="assets/img/BoardLogo.png" alt="Board Logo"></div><div>Board</div></div>
+            <div class="NavGap hover"><div><img src="assets/img/ContactsLogo.png" alt="Contacts Logo"></div><div>Contacts</div></div>
+        </div>
+        <div id="Impressum">
+            <div>Privacy Policy</div>
+            <div>Legal Notice</div>
+        </div>
     </div>
-    <div id="chosenContacts" class="chosen-contact" style="display: none;">
-        <div class="contact-headline">
-            <div class="contact-icon">AM</div>
-            <div class="contact-name-edit">
-                <div class="contact-name">Anton Mayer</div>
-                <div class="contact-change">
-                    <div class="contact-edit">
-                        <img class="image-edit" src="assets/img/edit.svg" alt=""><p>Edit</p>
+    <div id="header">
+        <div>Kanban Project Management Tool</div>
+        <div style="display: flex;align-items: center;"><img src="assets/img/help.png" alt=""><div id="user">SM</div></div>
+    </div>
+    <div id="ContactArea">
+        <div id="ContactBook">
+            <div onclick="openContactSheet()" id="AddNewContactButton">
+                <div><a>Add new contact</a></div>
+                <div><img src="assets/img/addContact.png" alt=""></div>
+            </div>
+            <div id="contacts">
+            </div>
+        </div>
+    </div>
+    <div id="contactModal" style="display: none;">
+        <div id="contactSheet">
+            <div id="LeftSideContactSheet">
+                <div id="ContactLogo" style="position: absolute;top: 20%;left: 5%;"><img src="assets/img/Joinlogovector.svg" alt=""></div>
+                <div id="EditContact" style="position: absolute;top: 52%;left: 5%;font-size: calc(45px + 0.1vh);color: white;">Edit Contact</div>
+                <div id="blueLine"></div>
+            </div>
+            <div id="rightSideContactSheet">
+                <div id="UserLogo">
+                    <div onload="display()" id="userText"></div>
+                </div>
+                <div>
+                    <div id="FillInArea">
+                        <div id="NameContainer"><textarea onclick="changeBorder('NameContainer')" onkeyup="renderUser()" name="Name" id="Name"></textarea><img class="ContactLogo" src="assets/img/avatar.png" alt="Avatar"></div>
+                        <div id="EmailContainer"><textarea onclick="changeBorder('EmailContainer')" name="Email" id="Email"></textarea><img class="ContactLogo" src="assets/img/letter.png" alt="Letter"></div>
+                        <div id="PhoneContainer"><textarea onclick="changeBorder('PhoneContainer')" type="tel" name="Phone" id="Phone"></textarea><img class="ContactLogo" src="assets/img/phone.png" alt="Phone"></div>
+                        <div id="ButtonArea"><a ><img onclick="deleteContact()" id="delete" src="assets/img/delete.png" alt=""></a><a onclick="saveContact()"><img  id="save" src="assets/img/save.png" alt=""></a></div>
                     </div>
-                    <div class="contact-delete">
-                        <img class="image-delete" src="assets/img/delete.svg" alt=""><p>Delete</p>
-                    </div>
+                    <div onclick="closeb()"><img id="close" src="assets/img/close.png" alt=""></div>
                 </div>
             </div>
         </div>
-        <div class="contact-information">Contact Information</div>
-        <div class="contact-email">Email</div>
-        <div class="email-address">anton@gmail.com</div>
-        <div class="contact-phone">Phone</div>
-        <div class="phone-number">+49 1111 1111 11 1</div>
     </div>
-    <div id="contactlist" class="contacts-section"></div>
-    <div w3-include-html="footer.html"></div>
 </body>
-<<<<<<< HEAD
 </html>
-
-=======
-</html>
->>>>>>> 987f1b370822dc387a89f8142baac3686d8b1481
