@@ -1,26 +1,143 @@
-/* @font-face {
-    font-family: Roboto;
-    src: url(assets/fonts/Inter.woff2);
-} */
+a:focus{
+    outline: none;
+}
 
 .drag-area {
-    height: 500px;
-    width: calc(25% - 10px);
+    position: relative;
+    height: calc(100% - 55px);
+    width: calc(100% - 15px);
     background-color: rgba(255, 255, 255, 0.1);
-    margin: 5px;
-    margin-bottom: 50px;
+    margin: 5px 0px 0 5px;
     display: flex;
     align-items: flex-start;
     flex-direction: column;
     border-collapse: collapse;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    top: 60px;
+}
+
+#AccountArea{
+    text-align: start;
+    position: absolute;
+    top: 90px;
+    right: 0px;
+    width: fit-content;
+    height: fit-content;
+    padding: 20px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px; 
+    background-color: #2a3647;
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+#AccountArea a{
+    color: white;
+    text-decoration: none;
+}
+
+#AccountArea div{
+    cursor: pointer;
 }
 
 body{
     background-color: #f6f7f8;
     margin: 0;
-    /* font-family: Roboto; */
+    font-family: Roboto;
     overflow: hidden;
 }
+
+.category{
+    border: 1px solid transparent;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    color: white;
+    width: fit-content;
+    font-size: 20px;
+    font-weight: 500;
+    padding: 3px 20px;
+}
+
+#contentArea4{
+    /* left: 100px; */
+    position: absolute;
+    /* top: 225px; */
+    width: calc(100% - 80px);
+    height: calc(100% - 80px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    background-color: white;
+}
+
+.title{
+    margin-bottom: 10px;
+    font-weight: 600;
+    font-size: 20px;
+    color: #2a3647;
+    margin-bottom: 15px;
+    max-height: 50px;
+    overflow-y: auto;
+}
+
+#title2 {
+    resize: none;
+    border-radius: 5px;
+    width: calc(100% - 25px);
+    padding: 11px 0 0 10px;
+    position: relative;
+    top: 5px;
+    height: 28px;
+}
+
+.description {
+    font-size: 16px;
+    max-height: 58px;
+    overflow-y: auto;
+    color: #a8a8a8;
+}
+
+#description2{
+    margin-bottom: 20px;
+    resize: none;
+    width: calc(100% - 35px);
+    border-radius: 5px;
+    height: 128px;
+    padding: 10px;
+    margin-top: 5px;
+}
+
+.subtasks{
+    width: calc(100%);
+    display: flex;
+}
+
+.prio {
+    position: absolute;
+    right: 30px;
+    bottom: 30px;
+}
+
+.assigned {
+    width: 120px;
+    height: 62px;
+    padding: 10px;
+    color: white;
+    display: flex;
+    overflow-x: auto;
+    scrollbar-width: none;
+    max-width: 52px;
+    scrollbar-width: thin;
+    position: absolute;
+    bottom: 9px;
+    left: 20px;
+}
+
 
 #SM{
     border: #2a3647 2px solid;
@@ -29,31 +146,94 @@ body{
     margin-left: 20px;
 }
 
-#ContactArea{
+#ContactArea {
+    z-index: 4;
     position: absolute;
-    left: 230px;
-    top: 90px;
+    left: 221px;
+    top: 83px;
+    width: 360px;
+    box-shadow: 0px 0px 10px #2a3647;
+    background-color: white;
+    height: calc(100vh - 74px);
+    clip-path: inset(7px -33px 6px 9px);
+}
+
+#Navbar a{
+    text-decoration: none;
+    color:#d1d1d1;
+}
+
+#textareaBoard {
+    resize: none;
+    border: none;
+    height: 27px;
+    width: calc(100% - 75px);
+    border-bottom-left-radius: 8px;
+    border-top-left-radius: 8px;
+    position: absolute;
+    bottom: 0px;
+    font-size: 20px;
+    padding: 8px;
+    font-family: Roboto;
+  }
+
+#contacs{
+    height: calc(100vh - 200px);
+    padding: 20px;
+    overflow-y: scroll;
+}
+
+#img_size{
+    width: 21px;
+    position: relative;
+    margin-right: 10px;
+}
+
+#div2{
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+}
+
+#div3{
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+}
+
+element.style {
+    margin-top: 20px;
+    margin-left: 30px;
+}
+
+#ContactName{
+    font-size: 40px;
+    margin-top: 12px;
 }
 
 #AddNewContactButton{
     cursor: pointer;
     background-color: #2a3647;
     height: 50px;
-    width: 200px;
+    width: 220px;
     color: white;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     padding: 0 30px;
     border-radius: 10px;
     font-size: 18px;
-    margin-left: 20px;
-    margin-top: 20px;
+    margin-left: 0px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    font-weight: 600;
 }
 
 #AddNewContactButton img{
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 24px;
+    position: relative;
+    top: 1px;
 }
 
 #contactModal{
@@ -66,6 +246,7 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 2;
 }
 
 #contactSheet{
@@ -74,12 +255,13 @@ body{
     background-color: white;
     border-radius: 20px;
     display: flex;
+    z-index: 2;
 }
 
-#UserLogo{
-    bottom: 8%;
+#UserLogo {
+    bottom: 60px;
     position: relative;
-    width: 100px;
+    width: 136px;
     height: 100px;
     border-radius: 50%;
     margin-left: 8%;
@@ -108,20 +290,74 @@ textarea:focus{
     background-color: #29abe2;
 }
 
+#gapfont{
+    font-weight: 600;
+    margin: 10px 0 2px 0;
+}
+
+#Contact{
+    display: flex;
+}
+
 .ContactLogo{
     width: 40px;
     height: 40px;
     border-radius: 10px;
     z-index: 5;
     position: relative;
-    top: 1px;
+    top: 2px;
     right: 2px;
+}
+
+#ContactArea2 {
+    position: absolute;
+    left: 590px;
+    top: 90px;
+    width: calc(100% - 590px);
+    height: calc(100% - 90px);
+    background-color: #f6f7f8;
+}
+
+#ContactArea3 {
+    position: absolute;
+    left: 590px;
+    top: calc(35%);
+    width: calc(100% - 640px);
+    height: calc(65%);
+    margin-left: 50px;
+}
+
+#ContactLogo {
+    font-size: 40px;
+    background-color: #54FBB6;
+    width: 110px;
+    height: 110px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    border: 3px solid white;
+    border-radius: 50%;
+}
+
+#div1{
+    display: flex;
+}
+
+#style {
+    margin-top: 30px;
+    font-size: 22px;
+}
+
+#element {
+    margin-top: 10px;
+    margin-left: 30px;
 }
 
 #NameContainer{
     display: flex;
     justify-content: flex-end;
-    width: 68%;
+    width: 100%;
     height: 40px;
     border-radius: 10px;
     margin-bottom: 20px;
@@ -130,7 +366,7 @@ textarea:focus{
 #EmailContainer{
     display: flex;
     justify-content: flex-end;
-    width: 68%;
+    width: 100%;
     height: 40px;
     border-radius: 10px;
     margin-bottom: 20px;
@@ -139,29 +375,47 @@ textarea:focus{
 #PhoneContainer{
     display: flex;
     justify-content: flex-end;
-    width: 68%;
+    width: 100%;
     height: 40px;
     border-radius: 10px;
     margin-bottom: 50px;
 }
 
-#FillInArea{
-    top: 80px;
-    right: 0px;
-    position: absolute;
+#FillInArea {
     display: flex;
     align-items: flex-end;
     flex-direction: column;
     width: calc(100% - 49px);
     padding-right: 50px;
+}
 
+.round{
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width: 40px;
+    margin-right: 20px;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-bottom: 10px;
 }
 
 #ButtonArea {
     position: relative;
-    width: 60%;
-    right: 2px;
-    bottom: 30px;
+    display: flex;
+    width: fit-content;
+    right: -40px;
+    bottom: -60px;
+}
+
+#ButtonArea {
+    position: relative;
+    display: flex;
+    width: fit-content;
+    right: -5px;
+    bottom: 10px;
 }
 
 #close{
@@ -180,48 +434,61 @@ textarea:focus{
     top: 6px;
 }
 
+
 #Name {
     position: relative;
-    height: 24px;
+    height: 44px;
     width: calc(100% + 40px);
     border: #d1d1d1 2px solid;
-    position: relative;
     top: 0px;
     left: 40px;
-    padding-right:40px;
+    padding: 10px 40px 0 10px;
+    border-radius: 10px;
+    resize: none;
+    font-size: 20px;
 }
 
-#Name:active{
-    border:#29abe2;
+#Name:focus{
+    border:#29abe2 2px solid;
 }
 
 #Email{
     position: relative;
-    height: 24px;
+    height: 44px;
     width: calc(100% + 40px);
     border: #d1d1d1 2px solid;
-    position: relative;
     top: 0px;
     left: 40px;
-    padding-right:40px;
+    padding: 10px 40px 0 10px;
+    border-radius: 10px;
+    resize: none;
+    font-size: 20px;
+}
+
+#Email:focus{
+    border:#29abe2 2px solid;
 }
 
 #Phone{
     position: relative;
-    height: 24px;
+    height: 44px;
     width: calc(100% + 40px);
     border: #d1d1d1 2px solid;
-    position: relative;
     top: 0px;
     left: 40px;
-    padding-right:40px;
+    padding: 10px 40px 0 10px;
+    border-radius: 10px;
+    resize: none;
+    font-size: 20px;
+}
+
+#Phone:focus{
+    border:#29abe2 2px solid;
 }
 
 #delete {
     width: 100px;
     height: 50px;
-    margin-top: 20px;
-    margin-right: 20px;
     cursor: pointer;
 }
 
@@ -231,7 +498,7 @@ textarea:focus{
     cursor: pointer;
 }
 
-#header{
+#header {
     position: absolute;
     top: 0;
     left: 230px;
@@ -242,15 +509,25 @@ textarea:focus{
     align-items: center;
     font-size: 20px;
     background-color: white;
-    border-bottom: 1px solid #2a3647;
     justify-content: space-between;
+    box-shadow: 0 0 15px black;
+    z-index: 4;
+}
+
+#leftSide {
+    font-size: 16px;
+    position: absolute;
+    left: 30px;
+    width: calc(50% - 40px);
+    margin-bottom: 0px;
+    top: 201px;
 }
 
 #user {
     margin-left: 10px;
     border: 2px solid #2a3647;
     border-radius: 50%;
-    padding: 8px 5px;
+    padding: 8px 6px;
     color: #29abe2;
     font-size: 20px;
     cursor: pointer;
@@ -267,13 +544,32 @@ textarea:focus{
     background-color: rgba(255, 255, 255, 0.2);
 }
 
+#contacts{
+    padding-right: 28px;
+    overflow-y: scroll;
+    height: calc(100% - 108px);
+}
+
+#close2 {
+    position: absolute;
+    top: 30px !important;
+    right: 30px !important;
+    cursor: pointer;
+}
+
+#close2 img {
+    width: 25px;
+}
+
 .todo {
+    min-height: 225px;
     background-color: white;
     border: 1px solid #2a3647;
     border-radius: 10px;
-    padding: 10px;
-    margin: 2px 0 2px 0px;
-    width: calc(100% - 22px);
+    padding: 20px;
+    margin: 2px 0 8px 0px;
+    width: calc(100% - 42px);
+    position: relative;
 }
 
 #Kanban {
@@ -285,6 +581,7 @@ textarea:focus{
     position: absolute;
     top: 240px;
     left: 230px;
+    background-color: #f6f7f8;
 }
 
 #Kanban img{
@@ -309,16 +606,18 @@ textarea:focus{
 
 #modal {
     position: fixed;
-    top: 0;
-    left: 0px;
+    top: 90px;
+    left: 230px;
     right: 0;
-    padding: 180px 230px 180px 345px;
-    height: calc(100% - 40px);
-    width: calc(100% - 460px);
+    /* padding: 180px 230px 180px 345px; */
+    height: calc(100% - 90px);
+    width: calc(100% - 230px);
+    justify-content: center;
+    align-items: center;
 }
 
 #Navbar {
-    color: white;
+    color: #a8a8a8;
     width: 230px;
     display: flex;
     flex-direction: column;
@@ -326,6 +625,7 @@ textarea:focus{
     padding: 20px 0% 78px 0%;
     background-color: #2a3647;
     height: calc(100vh - 98px);
+    z-index: 3;
 }
 
 #NavLeft{
@@ -352,9 +652,14 @@ textarea:focus{
     height: 150px;
 }
 
+#Impressum div:hover{
+    background-color: #091931;
+}
+
 .hover:hover{
     background-color: #091931;
     cursor: pointer;
+    color: white;
 }
 
 #Impressum {
@@ -366,28 +671,16 @@ textarea:focus{
     margin: 30px 0;
 }
 
-#AddTaskButton{
-    padding: 10px 20px;
+#AddTaskButton {
+    padding: 10.5px 20px;
     border-radius: 10px;
     background-color: #2a3647;
     color: white;
     position: absolute;
     right: 45px;
-    border: none;
+    top: 51px;
     font-size: 20px;
-}
-
-textarea{
-    resize: none;
-    border: none;
-    height: 24px;
-    width: 188px;
-    border-radius: 10px;
-    position: relative;
-    bottom: 21px;
-    font-size: 20px;
-    padding: 8px;
-    font-family: Roboto;
+    border: 1px solid transparent;
 }
 
 #BoardNewTask {
@@ -399,15 +692,17 @@ textarea{
     display: flex;
     align-items: center;
     font-size: 65px;
+    background-color: #f6f7f8;
+    z-index: 0;
 }
 
 #BoardNewTask img {
     width: 60px;
-    height: 40px;
-    border-bottom-right-radius: 10px;
-    border-top-right-radius: 10px;
-    position: relative;
-    bottom: 21px;
+    height: 41px;
+    border-bottom-right-radius: 8px;
+    border-top-right-radius: 8px;
+    position: absolute;
+    right: 0px;
 }
 
 .b1{
@@ -421,43 +716,60 @@ textarea{
 }
 
 #toDo{
-    width: calc(100% - 6px);
+    width: calc(25% - 125px);
     text-align: center;
     padding: 10px 0px 10px 7px;
     color: #2a3647;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: fixed;
+    top: 257px;
+    z-index: 0;
 }
 
 #inProgress{
-    width: calc(100% - 6px);
+    width: calc(25% - 125px);
     text-align: center;
     padding: 10px 0px 10px 7px;
     color: #2a3647;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: fixed;
+    top: 257px;
+    z-index: 0;
 }
 
 #awaitFeedback{
-    width: calc(100% - 6px);
+    width: calc(25% - 125px);
     text-align: center;
     padding: 10px 0px 10px 7px;
     color: #2a3647;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: fixed;
+    top: 257px;
+    z-index: 0;
+}
+
+#TODOFRAME{
+    width: calc(25% - 50px);
+    margin: 0 25px;
 }
 
 #done{
-    width: calc(100% - 6px);
+    width: calc(25% - 125px);
     text-align: center;
     padding: 10px 0px 10px 7px;
     color: #2a3647;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: fixed;
+    top: 257px;
+    z-index: 0;
 }
 
 #LeftSideContactSheet{
@@ -473,7 +785,7 @@ textarea{
 }
 
 
-#rightSideContactSheet{
+#rightSideContactSheet {
     width: 62.5%;
     display: flex;
     position: relative;
@@ -481,3 +793,1404 @@ textarea{
     align-items: center;
     margin-left: 0%;
 }
+
+.assignFrame {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    justify-content: center;
+    border: 1px solid grey;
+    padding: 4px 13px 4px 3px;
+    border-radius: 5px;
+    position: relative;
+    bottom: 0px;
+    right: 0px;
+    margin-right: 4px;
+    text-wrap: nowrap;
+    margin-bottom: 4px;
+    background-color: #ffffff;
+}
+
+.category{
+    color: black;
+}
+
+.category2{
+    color: white;
+    width: fit-content;
+    padding: 5px 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.subbar{
+    width: 100%;
+    height: 14px;
+    border-radius: 5px;
+    background-color: rgb(237 237 237 / 50%);
+    box-shadow: 0 0 3px black;
+    z-index: 0;
+}
+
+#contactse{
+    flex-direction: column;
+}
+
+#assigned{
+    display: flex;
+    overflow-x: scroll;
+    scrollbar-width: none;
+}   
+
+.select{
+    position: relative;
+    top: 5px;
+    height: 20px;
+    left: 5px;
+}
+
+#ModalTask {
+    position: absolute;
+    background-color: #808080b0;
+    left: 230px;
+    top: 90px;
+    height: calc(100% - 90px);
+    width: calc(100% - 230px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+}
+
+#closeModalTask {
+    position: absolute;
+    right: 50px;
+}
+
+#closeModalTask img {
+    width: 20px;
+    height: 20px;
+}
+
+#openTask{
+    width: calc(50% - 110px);
+    padding: 50px;
+    height: 85%;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0 0 5px black;
+    position: relative;
+    font-size: 18px;
+}
+
+#story {
+    background-color: #0038ff;
+    width: fit-content;
+    padding: 5px 15px;
+    border-radius: 5px;
+    color: white;
+    filter: blur(0.1px);
+    margin-bottom: 20px;
+    box-shadow: 0 0 5px black;
+}
+
+#modalTitle {
+    font-size: 60px;
+    font-weight: 600;
+}
+
+#modalDescription {
+    color: #101010;
+    margin-top: 5px;
+}
+
+#modalDuedate {
+    color: #101010;
+    margin-top: 15px;
+}
+
+#modalPrio {
+    margin-top: 15px;
+}
+
+#modalPrio img{
+    width: 20px;
+    margin-left: 10px;
+}
+
+#hacken{
+    width: 16px;
+    height: 16px;
+}
+
+.cubus {
+    width: 16px;
+    height: 16px;
+    margin-right: 20px;
+    border: 2px solid #2a3647;
+    border-radius: 10%;
+    cursor: pointer;
+}
+
+#modalAssigned {
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+#modalSubtasks {
+    margin-top: 10px;
+}
+
+#modalButtons {
+    display: flex;
+    position: absolute;
+    bottom: 50px;
+    right: 50px;
+}
+
+#modalButtons img{
+    width: 20px;
+    height: 20px;
+}
+
+.imgalign {
+    display: flex;
+    align-items: center;
+}
+
+#part1 {
+    display: flex;
+    align-items: center;
+}
+
+.ButtonText{
+    margin-left: 5px;
+}
+
+#part2 {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+}
+
+.subbar2{
+    height: 14px;
+    border-radius: 5px;
+    background-color: rgba(0, 81, 255, 0.5);
+    box-shadow: 0 0 3px black;
+    position: absolute;
+    left: 0px;
+    z-index: 0;
+}
+
+.sub{
+    display: flex;
+    width: calc(100% - 4px);
+    margin-bottom: 10px;
+    justify-content: space-between;
+}
+
+.sub img{
+    width: 16px;
+    height: 16px;
+}
+
+#deadline{
+    display: flex;
+    position: relative;
+    left: 20px;
+}
+
+.category:hover{
+    color: #29abe2;
+    cursor: pointer;
+}
+
+#priority{
+    display: flex;
+    align-items: center;
+    position: relative;
+    left: 29px;
+}
+
+#header3 {
+    position: absolute !important;
+    top: 60px !important;
+    left: 30px !important;
+    font-size: 50px !important;
+}
+
+#assigned{
+    width: calc(100% - 50px);
+    border-radius: 5px;
+    border: 1px solid grey;
+    margin-top: 5px;
+    height: 32px;
+    padding: 4px 30px 4px 4px;
+    background-color: white;
+    font-size: 17px;
+    z-index: 2;
+    flex-wrap: wrap;
+    overflow-x: auto;
+    scrollbar-width: thin;
+}
+
+#assignButton {
+    position: absolute;
+    top: 294px;
+    left: calc(100% - 45px);
+    cursor: pointer;
+    z-index: 2;
+    width: 18px;
+}
+
+#assignButton img{
+    width: 18px;
+    height: 18px;
+}
+
+#buttonArea2 {
+    display: flex;
+    position: absolute;
+    bottom: 40px;
+    right: 30px;
+}
+
+#contactse {
+    display: none;
+    width: calc(100% - 17px);
+    border: 2px solid #a6a6a6;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    max-height: 95px;
+    position: relative;
+    bottom: 10px;
+    border-top: 1px solid transparent;
+    padding: 9px 0 0 0;
+    overflow-y: scroll;
+    scrollbar-width: none;
+}
+
+#head{
+    display: flex;
+    width: calc(100% - 15px);
+    justify-content: space-between;
+    align-items: center;
+}
+
+#textarea {
+    position: relative;
+    top: 1px;
+    right: 8px;
+    width: calc(100%);
+    display: flex;
+    height: 43px;
+    border: 2px solid #a8a8a8;
+    border-radius: 10px;
+}
+
+#header2 {
+    position: absolute;
+    top: 60px;
+    left: 30px;
+    font-size: 50px;
+}
+
+#description3 {
+    margin-bottom: 20px;
+    resize: none;
+    width: calc(100% - 36px);
+    border-radius: 5px;
+    height: 116px;
+    padding: 10px;
+    margin-top: 5px;
+}
+
+#textareaUpper{
+    z-index: 2;
+    width: 35%;
+    position: absolute;
+    height: 50px;
+    top: 49px;
+    display: flex;
+    justify-content: center;
+    right: 193px;
+}
+
+#assignButton2 {
+    position: absolute;
+    top: 280px;
+    left: calc(100% - 42px);
+    cursor: pointer;
+    z-index: 2;
+}
+
+#assignButton2 img {
+    height: 16px;
+    width: 18px;
+}
+
+#h1{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: calc(100%);
+}
+
+
+#assigned3 {
+    width: calc(100% - 50px);
+    border-radius: 5px;
+    border: 1px solid grey;
+    margin-top: 5px;
+    height: 32px;
+    padding: 4px 30px 4px 4px;
+    background-color: white;
+    font-size: 17px;
+    z-index: 2;
+    display: flex;
+    flex-wrap: wrap;
+    overflow-x: auto;
+    scrollbar-width: thin;
+}
+
+#contentArea4Sub{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#leftSideSub{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    bottom: 20px;
+}
+
+#required {
+    position: absolute;
+    bottom: 28px;
+    left: 40px;
+}
+
+#rightSide{
+    position: absolute;
+    width: calc(50% - 50px);
+    left: calc(50% + 22px);
+    top: 181px;
+    display: flex;
+    flex-direction: column;
+}
+
+#verticalLine{
+    position: absolute;
+    top: 200px;
+    left: calc(50% + 0px);
+    width: 1px;
+    height: 310px;
+    background-color: #a4a4a4;
+    filter: drop-shadow(0px 0px 10px lightgrey);
+    border-radius: 50%;
+}
+
+
+
+/* Hide scrollbar for Firefox */
+textarea {
+    scrollbar-width: none; /* Firefox */
+  }
+  
+/* Hide scrollbar for Chrome, Safari, and Opera */
+textarea::-webkit-scrollbar {
+display: none; /* Chrome, Safari, and Opera */
+}
+
+/* Hide scrollbar for IE and Edge */
+textarea {
+-ms-overflow-style: none; /* IE and Edge */
+}
+
+@media(max-width:1500px){
+    
+    #NameContainer{
+        width: 70%;
+    }
+
+    #EmailContainer{
+        width: 70%;
+    }
+
+    #PhoneContainer{
+        width: 70%;
+    }
+
+    #contentArea4 {
+        /* left: 40px;
+        position: absolute; */
+        /* top: 225px; */
+        width: calc(100% - 80px);
+        height: calc(100% - 80px);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        background-color: white;
+    }
+
+    #header2 {
+        position: absolute;
+        top: 60px;
+        left: 30px;
+        font-size: 50px;
+    }
+
+    #leftSide {
+        font-size: 16px;
+        position: absolute;
+        left: 30px;
+        width: calc(50% - 40px);
+        margin-bottom: 0px;
+        top: 201px;
+    }
+
+    #rightSide {
+        position: absolute;
+        width: calc(50% - 50px);
+        left: calc(50% + 22px);
+        top: 181px;
+    }
+
+    #buttonArea{
+        display: flex;
+        position: absolute;
+        bottom: -40px !important;
+        right: 40px !important;
+    }
+
+    #buttonArea3{
+        display: flex;
+        position: absolute;
+        bottom: 40px !important;
+        right: 50px !important;
+    }
+
+    #buttonArea2 {
+        display: flex;
+        position: absolute;
+        bottom: 40px;
+        right: 30px;
+    }
+
+    #required{
+        position: absolute;
+        bottom: 28px;
+        left: 40px;
+    }
+
+    #close2 {
+        position: absolute;
+        top: 30px !important;
+        right: 30px !important;
+        cursor: pointer;
+    }
+}
+
+@media(max-width:1300px){
+    #user {
+        margin-left: 10px;
+        border: 2px solid #2a3647;
+        border-radius: 50%;
+        padding: 7px 6px;
+        color: #29abe2;
+        font-size: 20px;
+        position: absolute;
+        cursor: pointer;
+        right: 30px;
+    }
+
+    #help {
+        position: absolute;
+        right: 80px;
+    }
+
+    #TODOFRAME {
+        width: calc(100% - 45px);
+        margin: 0 5px;
+    }
+
+    #AccountArea {
+        text-align: start;
+        position: absolute;
+        top: 60px;
+        right: 0px;
+        width: fit-content;
+        height: fit-content;
+        padding: 20px;
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        background-color: #2a3647;
+        color: white;
+        display: flex;
+        flex-direction: column;
+    }
+
+    #h1{
+        display: flex;
+        width: calc(100% - 15px);
+        justify-content: space-between;
+        align-items: center;
+        z-index: 1;
+    }
+
+    #h2{
+        position: relative;
+        top: 18px;
+        font-size: 64px;
+        font-weight: 600;
+    }
+
+    #h3{
+        position: relative;
+        width: 100%;
+    }
+
+    #textareaUpper {
+        z-index: 2;
+        width: calc(100% - 30px);
+        height: 50px;
+        top: 88px;
+        display: flex;
+        justify-content: center;
+        right: 14px;
+    }
+
+    #contentArea4 {
+        left: 0px;
+        position: relative;
+        top: 0px;
+        width: calc(100% - 0px);
+        height: calc(100% - 0px);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 0px;
+        background-color: white;
+        box-shadow: 0 0 5px black;
+    }
+
+    #modal {
+        position: fixed;
+        top: 60px;
+        left: 0px;
+        right: 0;
+        height: calc(100% - 115px);
+        width: calc(100% - 0px);
+        justify-content: center;
+        align-items: center;
+    }
+
+    #Navbar {
+        color: #a8a8a8;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0;
+        background-color: #2a3647;
+        height: 70px;
+        position: fixed;
+        bottom: 0;
+    }
+
+    #LogoLeft{
+        display: none;
+    }
+
+    #Impressum{
+        display: none;
+    }
+
+    #NavLeft {
+        position: relative;
+        right: 0px;
+        font-size: 18px;
+        display: flex;
+        justify-content: center;
+        height: 100%;
+        align-items: center;
+        text-align: center;
+    }
+
+    .NavGap {
+        display: flex;
+        align-items: center;
+        padding: 5px 5px;
+        width: 85px;
+        flex-direction: column;
+    }
+
+    .NavGap:hover{
+        background-color: #091931;
+        border-radius: 10px;
+    }
+
+    #Navbar a {
+        text-decoration: none;
+        color: #d1d1d1;
+        display: flex;
+        flex-direction: column;
+        margin: 0 20px;
+    }
+
+    #header {
+        position: fixed;
+        top: 0;
+        left: 0px;
+        height: 60px;
+        width: calc(100% - 100px);
+        padding: 0 75px 0 25px;
+        display: flex;
+        align-items: center;
+        font-size: 18px;
+        background-color: white;
+        justify-content: space-between;
+        box-shadow: 0 0 15px black;
+        z-index: 4;
+    }
+
+    #BoardNewTask {
+        justify-content: space-between;
+        padding: 15px 15px 85px 15px;
+        width: calc(100% - 30px);
+        position: absolute;
+        top: 60px;
+        left: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 65px;
+        background-color: #f6f7f8;
+        z-index: 0;
+    }
+
+    #textareaBoard {
+        resize: none;
+        border: none;
+        height: 24px;
+        width: calc(100% - 75px);
+        border-bottom-left-radius: 8px;
+        border-top-left-radius: 8px;
+        position: absolute;
+        bottom: 0px;
+        font-size: 20px;
+        padding: 8px;
+        font-family: Roboto;
+    }
+
+    #textarea {
+        top: 35px;
+        right: 5px;
+        width: calc(100% - 14px);
+        display: flex;
+        height: 41px;
+        border: 2px solid #a8a8a8;
+        border-radius: 10px;
+    }
+
+    #toDo {
+        width: calc(100% - 5px);
+        text-align: center;
+        padding: 10px 0px 10px 20px;
+        color: #2a3647;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 22px;
+        z-index: 0;
+        font-weight: 600;
+        position: relative;
+        top: 0;
+    }
+
+    #inProgress {
+        width: calc(100% - 5px);
+        text-align: center;
+        padding: 10px 0px 10px 20px;
+        color: #2a3647;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 22px;
+        z-index: 0;
+        font-weight: 600;
+        position: relative;
+        top: 0;
+    }
+
+    #awaitFeedback {
+        width: calc(100% - 5px);
+        text-align: center;
+        padding: 10px 0px 10px 20px;
+        color: #2a3647;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 22px;
+        z-index: 0;
+        font-weight: 600;
+        position: relative;
+        top: 0;
+    }
+
+    #done {
+        width: calc(100% - 5px);
+        text-align: center;
+        padding: 10px 0px 10px 20px;
+        color: #2a3647;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 22px;
+        z-index: 0;
+        font-weight: 600;
+        position: relative;
+        top: 0;
+    }
+
+    .drag-area {
+        padding-top: 0px;
+        position: relative;
+        height: fit-content;
+        width: calc(100%);
+        background-color: rgba(255, 255, 255, 0.1);
+        margin: 5px 20px 4px 5px;
+        display: flex;
+        align-items: flex-start;
+        flex-direction: row;
+        border-collapse: collapse;
+        overflow-y: scroll;
+        scrollbar-width: none;
+        top: 0px;
+        left: 10px;
+        padding-bottom: 10px;
+    }
+
+    #rightSide{
+        position: absolute;
+        width: calc(50% - 50px);
+        left: calc(50% + 22px);
+        top: 120px;
+    }
+
+    #leftSide {
+        font-size: 16px;
+        position: absolute;
+        left: 30px;
+        width: calc(50% - 40px);
+        margin-bottom: 0px;
+        top: 140px;
+    }
+
+    #verticalLine{
+        position: absolute !important;
+        top: 137px !important;
+        left: calc(50% + 0px) !important;
+        width: 1px !important;
+        height: 310px !important;
+        background-color: #a4a4a4 !important;
+        filter: drop-shadow(0px 0px 10px lightgrey) !important;
+        border-radius: 50% !important;
+    }
+
+    #header2 {
+        position: absolute;
+        top: 40px;
+        left: 30px;
+        font-size: 50px;
+    }
+
+    #required {
+        position: absolute;
+        bottom: 40px;
+        left: 40px;
+    }
+
+    #description3 {
+        margin-bottom: 20px;
+        resize: none;
+        width: calc(100% - 36px);
+        border-radius: 5px;
+        height: 116px;
+        padding: 10px;
+        margin-top: 5px;
+    }
+
+    #assigned3 {
+        width: calc(100% - 50px);
+        border-radius: 5px;
+        border: 1px solid grey;
+        margin-top: 5px;
+        height: 32px;
+        padding: 4px 30px 4px 4px;
+        background-color: white;
+        font-size: 17px;
+        z-index: 2;
+        flex-wrap: wrap;
+        overflow-x: auto;
+        scrollbar-width: thin;
+    }
+
+    #AddTaskButton {
+        border-radius: 10px;
+        background-color: #2a3647;
+        color: white;
+        position: absolute;
+        right: 25px;
+        border: none;
+        font-size: 73px;
+        border: 1px solid transparent;
+        height: 45px;
+        width: 46px;
+    }
+
+    #ModalTask {
+        position: fixed;
+        background-color: #808080b0;
+        left: 0px;
+        top: 60px;
+        height: calc(100% - 130px);
+        width: calc(100% - 0px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1;
+    }
+
+    #Kanban {
+        display: flex;
+        flex-direction: column;
+        padding: 10px 0;
+        margin-bottom: 109px;
+        height: fit-content;
+        width: calc(100%);
+        position: absolute;
+        top: 233px;
+        overflow-y: scroll;
+        left: 0;
+        background-color: #f6f7f8;
+        scrollbar-width: none;
+    }
+
+    #modalTitle {
+        font-size: 60px;
+        font-weight: 600;
+        position: relative;
+        top: 0px;
+    }
+
+    #modalDuedate {
+        color: #101010;
+        margin-top: 15px;
+        position: relative;
+        bottom: 0px;
+    }
+
+    #modalPrio {
+        margin-top: 15px;
+        position: relative;
+        bottom: 0px;
+    }
+
+    #modalAssigned {
+        margin-top: 20px;
+        margin-bottom: 15px;
+        position: relative;
+        bottom: 15px;
+    }
+
+    #modalSubtasks {
+        margin-top: 0px;
+        position: relative;
+        bottom: 0px;
+    }
+
+    #modalDescription {
+        color: #101010;
+        margin-top: 5px;
+        position: relative;
+        top: 0px;
+    } 
+
+    #modalAssigned {
+        margin-top: 34px;
+        margin-bottom: 0px;
+    }
+
+    .todo {
+        min-height: 225px;
+        background-color: white;
+        border: 1px solid #2a3647;
+        border-radius: 10px;
+        padding: 20px;
+        margin: 2px 0 8px 0px;
+        max-width: calc(140px);
+        position: relative;
+        margin-right: 10px;
+    }
+    
+    #assignButton {
+        position: absolute;
+        top: 291px;
+        left: calc(100% - 45px);
+        cursor: pointer;
+        z-index: 2;
+        width: 18px;
+    }
+
+    #AddTaskButton img {
+        width: 30px;
+        height: 30px;
+        position: relative;
+        left: 6px;
+        bottom: 11px;
+    }
+
+    #AddTaskButton div {
+        position: relative;
+    }
+
+    #contactse {
+        display: none;
+        width: calc(100% - 16px);
+        border: 1px solid grey;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        max-height: 95px;
+        position: relative;
+        bottom: 10px;
+        border-top: 1px solid transparent;
+        padding: 9px 0 0 0;
+        overflow-y: scroll;
+        scrollbar-width: none;
+    }
+
+    .NavGap img{
+        margin-right: 0;
+    }
+
+    .last{
+        padding-bottom: 90px;
+    }
+
+    body{
+        overflow-y: scroll;
+    }
+
+    #header2 {
+        position: absolute;
+        top: 30px;
+        left: 30px;
+        font-size: 40px;
+    }
+
+    #modalButtons {
+        display: flex;
+        position: absolute;
+        bottom: 15px;
+        right: 15px;
+        top: auto;
+        flex-direction: row;
+        align-items: center;
+    }
+    
+    #openTask {
+        width: calc(100% - 40px);
+        padding: 50px 20px 20px 20px;
+        border-radius: 10px;
+        background-color: white;
+        box-shadow: 0 0 5px black;
+        height: calc(100% - 70px);
+        font-size: 18px;
+        overflow-y: scroll;
+    }
+
+    #modalCategory {
+        position: relative;
+        top: -15px;
+    }
+
+    #closeModalTask {
+        position: absolute;
+        right: 20px;
+        top: 25px;
+        z-index: 3;
+    }
+}
+
+@media(max-width: 850px){
+    #header2 {
+        position: absolute;
+        top: 30px;
+        left: 15px;
+        font-size: 40px;
+    }
+
+    #openTask {
+        width: calc(100% - 40px);
+        padding: 50px 20px 20px 20px;
+        border-radius: 0px !important;
+        background-color: white;
+        box-shadow: 0 0 5px black;
+        height: calc(100% - 70px);
+        font-size: 18px;
+        overflow-y: scroll;
+    }
+
+    #modalTitle {
+        font-size: 26px;
+        font-weight: 600;
+        position: relative;
+        top: -15px;
+    }
+
+    #openTask {
+        width: calc(100% - 40px);
+        padding: 50px 20px 20px 20px;
+        border-radius: 10px;
+        background-color: white;
+        box-shadow: 0 0 5px black;
+        height: calc(100% - 70px);
+        font-size: 18px;
+        overflow-y: scroll;
+    }
+
+    #openTask {
+        position: absolute;
+        top: 0px;
+    }
+
+    #leftSide {
+        font-size: 16px;
+        position: absolute;
+        left: 15px;
+        width: calc(100% - 15px);
+        margin-bottom: 0px;
+        top: 110px;
+    }
+
+    #rightSide {
+        position: absolute;
+        width: calc(100% - 60px);
+        left: calc(0% + 30px);
+        top: 435px;
+        padding-bottom: 40px;
+    }
+
+    #contentArea4 {
+        overflow-y: scroll;
+    }
+    
+    #EditContact {
+        font-size: calc(42px + 0.1vh);
+    }
+
+    #contactSheet{
+        width: 100%;
+    }
+
+    #verticalLine{
+        display: none;
+    }
+
+    #NameContainer {
+        width: 100%;
+    }
+
+    #buttonArea {
+        display: flex;
+        position: absolute;
+        bottom: -30px !important;
+        right: 40px !important;
+    }
+
+    #buttonArea2 {
+        display: flex;
+        position: absolute;
+        bottom: 20px;
+        right: 0px;
+    }
+
+    #EmailContainer {
+        width: 100%;
+    }
+
+    #PhoneContainer {
+        width: 100%;
+    }
+
+    #UserLogo {
+        bottom: 0px;
+        position: relative;
+        width: 0px;
+        height: 100px;
+        border-radius: 50%;
+        margin-left: 8%;
+        background-color: orange;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #LeftSideContactSheet img{
+        width: 80px;
+    }
+
+    #required {
+        position: absolute;
+        bottom: 20px;
+        left: 0;
+    }
+}
+
+
+@media (max-width: 700px) {
+    #ContactArea2{
+        display: none;
+    }
+
+    #ContactArea3{
+        display: none;
+    }
+
+    #ContactArea {
+        z-index: 4;
+        position: absolute;
+        left: 0px;
+        top: 60px;
+        width: 100% !important;
+        box-shadow: 0px 0px 10px #2a3647;
+        background-color: white;
+        height: calc(100vh - 115px);
+        clip-path: inset(0px -15px 0px 0px);
+    }
+
+    #AddNewContactButton {
+        cursor: pointer;
+        background-color: #2a3647;
+        height: 50px;
+        width: 180px;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        padding: 0 30px;
+        border-radius: 10px;
+        font-size: 18px;
+        margin-left: 0px;
+        margin-top: 25px;
+        margin-bottom: 25px;
+        font-weight: 600;
+        position: absolute;
+        right: 20px;
+        top: 10px;
+    }
+
+    #contacts {
+        padding-right: 0;
+        overflow-y: scroll;
+        height: calc(100% - 100px);
+        position: absolute;
+        top: 100px;
+        left: 20px;
+        width: calc(100% - 40px);
+
+    }
+}
+
+@media (max-width: 600px) {
+    #Navbar a {
+        text-decoration: none;
+        color: #d1d1d1;
+        display: flex;
+        flex-direction: column;
+        margin: 0 10px;
+    }
+
+    .NavGap {
+        display: flex;
+        align-items: center;
+        padding: 0 5px;
+        width: 75px;
+        flex-direction: column;
+    }
+
+    #NavLeft {
+        position: relative;
+        right: 0px;
+        font-size: 16px;
+        display: flex;
+        justify-content: center;
+        height: 100%;
+        align-items: center;
+        text-align: center;
+    }
+}
+
+@media (max-width: 500px) {
+    #Navbar a {
+        text-decoration: none;
+        color: #d1d1d1;
+        display: flex;
+        flex-direction: column;
+        margin: 0 5px;
+    }
+}
+
+@media (max-width: 450px) {
+    #Navbar a {
+        text-decoration: none;
+        color: #d1d1d1;
+        display: flex;
+        flex-direction: column;
+        margin: 0 1px;
+    }
+
+    .NavGap {
+        display: flex;
+        align-items: center;
+        padding: 0 5px;
+        width: 70px;
+        flex-direction: column;
+    }
+
+    #NavLeft {
+        position: relative;
+        right: 0px;
+        font-size: 15px;
+        display: flex;
+        justify-content: center;
+        height: 100%;
+        align-items: center;
+        text-align: center;
+    }
+}
+
+@media (max-width: 400px) {
+    #Navbar a {
+        text-decoration: none;
+        color: #d1d1d1;
+        display: flex;
+        flex-direction: column;
+        margin: 0 1px;
+    }
+
+    .NavGap {
+        display: flex;
+        align-items: center;
+        padding: 0 5px;
+        width: 58px;
+        flex-direction: column;
+    }
+}
+
+@media (max-height:800px) {
+
+    #Navbar {
+        color: #a8a8a8;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0;
+        background-color: #2a3647;
+        height: 55px;
+        position: fixed;
+        bottom: 0;
+        box-shadow: 0 0 5px black;
+    }
+
+    #header {
+        position: absolute;
+        top: 0;
+        left: 0px;
+        height: 70px;
+        width: calc(100% - 50px);
+        padding: 0 25px 0 25px;
+        display: flex;
+        align-items: center;
+        font-size: 20px;
+        background-color: white;
+        justify-content: space-between;
+        box-shadow: 0 0 15px black;
+        z-index: 4;
+    }
+
+    .NavGap img {
+        width: 20px;
+        height: 20px;
+        margin-right: 0px;
+    }
+
+    #ModalTask {
+        position: fixed;
+        background-color: #808080b0;
+        left: 0px;
+        top: 60px;
+        height: calc(100% - 115px);
+        width: calc(100% - 0px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1;
+    }
+}
+
+@media (max-width: 500px) {
+    #modalButtons {
+        display: flex;
+        position: absolute;
+        bottom: auto;
+        right: 15px;
+        top: 285px;
+        flex-direction: column;
+        align-items: end;
+    }
+
+    #openTask {
+        width: calc(100% - 40px);
+        padding: 50px 20px 20px 20px;
+        border-radius: 10px;
+        background-color: white;
+        box-shadow: 0 0 5px black;
+        height: calc(100% - 70px);
+        font-size: 16px;
+        overflow-y: scroll;
+    }
+
+    #modalCategory {
+        position: relative;
+        top: -15px;
+    }
+
+    #closeModalTask {
+        position: absolute;
+        right: 20px;
+        top: 25px;
+        z-index: 3;
+    }
+}
+
+@media (max-width: 700px) {
+    #modalTitle {
+        font-size: 20px;
+        font-weight: 600;
+        position: relative;
+        top: -10px;
+    }
+}
+
+

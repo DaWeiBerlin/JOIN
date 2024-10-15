@@ -1,12 +1,98 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="icon" type="image/x-icon" href="/./assets/img/Logo for Favicon construction.svg">
-</head>
-<body>
-    
+    <title>Join</title>
+    <link rel="stylesheet" href="styles/boardStyle.css">
+    <link rel="stylesheet" href="styles/summary.css">
+    <link rel="icon" type="image/x-icon" href="/./assets/img/LogoforFaviconconstruction.svg">
+    <script src="js/summary.js"></script>
+    <script src="js/header.js"></script>
+    </head>
+<body onload="renderUserSymbol();redirect();loadAccounts3();loadDataSum();guest2()" style="background-color: #f6f7f8;">
+    <div id="Navbar">
+        <div id="LogoLeft"><img src="assets/img/LogoLeft.png" alt="JoinLogo"></div>
+        <div id="NavLeft">
+            <a href="summary.html"><div class="NavGap hover" id="divLeft1"><div><img id="Picture1" src="assets/img/SummaryLogo.png" alt="Summary Logo"></div><div>Summary</div></div></a>
+            <a href="add-task.html"><div class="NavGap hover" id="divLeft2"><div><img id="Picture2" src="assets/img/AddTaskLogo.png" alt="Add Tasks Logo"></div><div style="width: 80px;">Add Task</div></div></a>
+            <a href="board.html"><div class="NavGap hover" id="divLeft3"><div><img id="Picture3" src="assets/img/BoardLogo.png" alt="Board Logo"></div><div>Board</div></div></a>
+            <a href="contacts.html"><div class="NavGap hover" id="divLeft4"><div><img id="Picture4" src="assets/img/ContactsLogo.png" alt="Contacts Logo"></div><div>Contacts</div></div></a>
+        </div>
+        <div id="Impressum">
+            <div style="height: 25px;padding: 10px 65px 4px 66px;"><a style="color: white;text-decoration: none;" href="privacy.html">Privacy Policy</a></div>
+            <div style="height: 25px;padding: 10px 70px 3px 70px;"><a style="color: white;text-decoration: none;" href="legal.html">Legal Notice</a></div>
+        </div>
+    </div>
+    <div id="header">
+        <div id="headerTitle">Kanban Project Management Tool</div>
+        <div id="userArea"><a href="help.html"><img src="assets/img/help.png" alt=""></a><div id="user" onclick="openArea()"></div></div>
+        <div id="AccountArea" style="display: none;">
+            <div style="margin-bottom: 20px;"><a href="">Account</a></div>
+            <div style="margin-bottom: 20px;"><a href="">Legal Notice</a></div>
+            <div style="margin-bottom: 20px;"><a href="privacy.html">Privacy Policy</a></div>
+            <div id="logout" onclick="logout()"><a>Logout</a></div>
+            <div style="display: none;" id="login" onclick="loginguest()"><a>Logout</a></div>
+
+        </div>
+    </div>
+    <div id="summaryArea">
+        <div id="s1"><div id="s2">Join 360</div><div id="s3"></div><div id="s4">Key Metrics at a Glance</div></div>
+        
+        <div id="s5">
+            <div id="w50">
+            <div id="s32">
+                <div id="s61">
+                    <div id="s7">
+                        <div id="s8">
+                            <div><img src="assets/img/edit_round.png" alt="" id="s9"></div>
+                            <div>
+                                <div id="ToDoNumber" id="s10"></div>
+                                <div id="s11">To-do</div>
+                            </div>
+                        </div>
+                        <div id="s12">
+                            <div><img src="assets/img/done_round.png" alt="" id="s13"></div>
+                            <div>
+                                <div id="DoneNumber" id="s14"></div>
+                                <div id="s15">Done</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="urgent">
+                        <div id="urgent2">
+                            <div><img src="assets/img/urgent_round.png" alt=""></div>
+                            <div id="urgentSub">
+                                <div id="UrgentNumber"></div>
+                                <div id="UrgentText">Urgent</div>
+                            </div>
+                        </div>
+                        <div id="verticalLineSummary"></div>
+                        <div id="s16">
+                            <div id="Deadline" id="s17"></div>
+                            <div id="s18">Upcoming Deadline</div>
+                        </div>
+                    </div>
+                    <div id="s19">
+                        <div id="s20">
+                            <div id="TasksInBoard" id="s21"></div>
+                            <div id="s22">Tasks in Board</div>
+                        </div>
+                        <div id="s23">
+                            <div id="TasksInProgress" id="s24"></div>
+                            <div id="s25">Tasks In Progress</div>
+                        </div>
+                        <div id="s26">
+                            <div id="AwaitingFeedback" id="s27"></div>
+                            <div id="s28">Awaiting Feedback</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div id="s29">
+                <div id="s30">Good Morning</div>
+                <div id="UserSummary" id="s31"></div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

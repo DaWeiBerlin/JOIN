@@ -1,0 +1,169 @@
+@font-face {
+    font-family: Inter;
+    src: url(fonts/Inter.woff2);
+}
+
+body{
+    background-color:#f6f7f8;
+    font-family: Inter;
+}
+
+#contentArea{
+    position: absolute;
+    top: 90px;
+    left: 230px;
+    height: calc(100% - 90px);
+    width: calc(100% - 230px);
+}
+
+#header{
+    z-index: 2;
+}
+
+.sub{
+    display: flex;
+    height: 40px;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.sub img{
+    width: 18px;
+    height: 18px;
+}
+
+#subtasks{
+    display: flex;
+    background-color: white;
+    height: fit-content;
+    padding: 0 10px;
+    border-radius: 5px;
+    border: 1px solid grey;
+    width: calc(100% - 22px);
+    flex-direction: column;
+}
+
+#Urgente:hover{
+    box-shadow: 1px 1px 5px grey;
+}
+
+#Mediume:hover{
+    box-shadow: 1px 1px 5px grey;
+}
+
+#Lowe:hover{
+    box-shadow: 1px 1px 5px grey;
+}
+
+#Urgente{
+    border-radius: 5px;
+}
+
+#Mediume{
+    border-radius: 5px;
+}
+
+#Lowe{
+    border-radius: 5px;
+}
+
+#header2{
+    position: absolute;
+    top: 90px;
+    left: 50px;
+    height: 20%;
+    width: calc(100% - 60px);
+    font-size: 50px;
+    z-index: -1;
+    font-weight: 600;
+}
+
+#leftSide{
+    position: absolute;
+    top: calc(10% + 110px);
+    left: 50px;
+    width: calc(50% - 100px);
+    height: 327px;
+}
+
+.category:hover{
+    color: #29abe2;
+}
+
+.assignFrame{
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    justify-content: center;
+    border: 1px solid grey;
+    padding: 5px;
+    border-radius: 5px;
+    position: relative;
+    bottom: 8px;
+    right: 8px;
+}
+
+button{
+    cursor: pointer;
+}
+
+.category{
+    display: block;
+    cursor: pointer;
+}
+
+#leftSide img{
+    cursor: pointer;
+}
+
+#contactse{
+    display: flex;
+    background-color: white;
+    height: fit-content;
+    max-height: 200px;
+    padding: 0 10px;
+    border-radius: 5px;
+    border: 1px solid grey;
+    width: calc(100% + -20px);
+}
+
+#rightSide{
+    position: absolute;
+    width: calc(50% - 50px);
+    height: 60%;
+    top: calc(10% + 110px);
+    left: calc(50% + 50px);
+}
+
+#rightSide img{
+    cursor: pointer;
+}
+
+#Prio div{
+    cursor: pointer;
+}
+
+#buttonArea{
+    position: absolute;
+    right: 50px !important;
+    bottom: 60px !important;
+    display: flex;
+    gap: 10px;
+}
+
+#required{
+    position: absolute;
+    left: 50px;
+    bottom: 50px;
+}
+
+#title {
+    margin-bottom: 20px;
+    resize: none;
+    width: 100%;
+    height: 42px;
+    border-radius: 5px;
+    padding: 10px 0 0 10px;
+    margin-top: 5px;
+}

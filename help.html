@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/boardStyle.css">
+    <link rel="icon" type="image/x-icon" href="/./assets/img/LogoforFaviconconstruction.svg">
+    <script src="boardScript.js"></script>
+    <script src="js/header.js"></script>
+    <script src="js/login.js"></script>
+</head>
+<body onload="updateHTML();redirect();renderUserSymbol();guest2()">
+    <div id="Navbar">
+        <div id="LogoLeft"><img src="assets/img/LogoLeft.png" alt="JoinLogo"></div>
+        <div id="NavLeft">
+            <a href="summary.html"><div class="NavGap hover" id="divLeft1"><div><img id="Picture1" src="assets/img/SummaryLogo.png" alt="Summary Logo"></div><div>Summary</div></div></a>
+            <a href="add-task.html"><div class="NavGap hover" id="divLeft2"><div><img id="Picture2" src="assets/img/AddTaskLogo.png" alt="Add Tasks Logo"></div><div style="width: 80px;">Add Task</div></div></a>
+            <a href="board.html"><div class="NavGap hover" id="divLeft3"><div><img id="Picture3" src="assets/img/BoardLogo.png" alt="Board Logo"></div><div>Board</div></div></a>
+            <a href="contacts.html"><div class="NavGap hover" id="divLeft4"><div><img id="Picture4" src="assets/img/ContactsLogo.png" alt="Contacts Logo"></div><div>Contacts</div></div></a>
+        </div>
+        <div id="Impressum">
+            <div style="height: 25px;padding: 10px 65px 4px 66px;"><a style="color: white;text-decoration: none;" href="privacy.html">Privacy Policy</a></div>
+            <div style="height: 25px;padding: 10px 70px 3px 70px;"><a style="color: white;text-decoration: none;" href="legal.html">Legal Notice</a></div>
+        </div>
+    </div>
+    <div id="header">
+        <div>Kanban Project Management Tool</div>
+        <div style="display: flex;align-items: center;"><img src="assets/img/help.png" alt=""><div id="user"></div></div>
+        <div id="AccountArea" style="display: none;">
+            <div style="margin-bottom: 20px;"><a href="">Account</a></div>
+            <div style="margin-bottom: 20px;"><a href="">Legal Notice</a></div>
+            <div style="margin-bottom: 20px;"><a href="privacy.html">Privacy Policy</a></div>
+            <div id="logout" onclick="logout()"><a href="index.html">Logout</a></div>
+        </div>
+    </div>
+</body>
+</html>
+

@@ -1,0 +1,998 @@
+@font-face {
+    font-family: Inter;
+    src: url(fonts/Inter.woff2);
+}
+
+@font-face {
+    font-family: Roboto;
+    src: url(fonts/Roboto-Medium.ttf);
+}
+
+a:focus{
+    outline: none;
+}
+
+body {
+    margin: 0;
+    background-color: #f6f7f8;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+#Login{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 20px;
+    font-size: 32px;
+    font-weight: 700;
+    position: relative;
+    right: 12px;
+}
+
+#horizontalLine{
+    
+    width: 70px;
+    margin-top: 10px;
+    height: 2px;
+    background-color: #29abe2;
+}
+
+#JoinLogo{
+    position: absolute;
+    top: 50px;
+    left: 50px;
+}
+
+#JoinOverlay {
+    background-color: #f6f7f8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    height: auto;
+    z-index: 3;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+#footer {
+    position: absolute;
+    bottom: 20px;
+    gap: 20px;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    color: #a8a8a8;
+}
+
+#footer a{
+    text-decoration: none;
+    color: #a8a8a8;
+}
+
+#footer div{
+    cursor: pointer;
+}
+
+#signup {
+    position: absolute;
+    top: 68px;
+    display: flex;
+    right: 100px;
+    gap: 20px;
+    font-size: 20px;
+}
+
+#SignUpModal{
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    background-color: #f6f7f8;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#footerSignup{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+    bottom: 20px;
+}
+
+#footerSignup a{
+    text-decoration: none;
+    color: #a8a8a8;
+
+}
+
+button{
+    cursor: pointer;
+}
+
+#hacken{
+    width: 13px !important;
+    height: 13px !important;
+    position: relative;
+    top: 2px;
+    left: 2px;
+    border-radius: 5px;
+}
+
+#hacken2{
+    width: 13px !important;
+    height: 13px !important;
+    position: relative;
+    top: 1px;
+    left: 2px;
+    border-radius: 5px;
+}
+
+#signup button {
+    border-radius: 10px;
+    border: none;
+    background-color: #2a3647;
+    padding: 12px 15px;
+    color: #f6f7f8;
+    position: relative;
+    bottom: 10px;
+    font-size: 18px;
+}
+
+#cubus{
+    width: 16px;
+    height: 16px;
+    border: 1px solid #2a3647;
+    border-radius: 5px;
+    position: relative;
+    right: 5px;
+    bottom: 1px;
+    cursor: pointer;
+}
+
+
+
+#cubus2{
+    width: 16px;
+    height: 16px;
+    border: 1px solid #2a3647;
+    border-radius: 5px;
+    position: relative;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+#remember{
+    margin: 20px 0 10px;
+}
+
+#loginButton{
+    border-radius: 10px;
+    border: none;
+    background-color: #2a3647;
+    padding: 8px 15px;
+    color: #f6f7f8;
+    position: relative;
+    width: fit-content;
+    font-size: 18px;
+    position: relative;
+    right: 20px;
+}
+
+#loginButton2{
+    border-radius: 10px;
+    border: none;
+    background-color: #2a3647;
+    padding: 8px 15px;
+    color: #f6f7f8;
+    position: relative;
+    width: fit-content;
+    font-size: 18px;
+    position: relative;
+    right: 0px;
+}
+
+#GuestloginButton{
+    border-radius: 10px;
+    border: none;
+    background-color: #f6f7f8;
+    border: 1px solid #2a3647;
+    padding: 8px 15px;
+    color: #2a3647;
+    position: relative;
+    left: 4px;
+    font-size: 18px;
+    width: fit-content;
+}
+
+#login{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 45%;
+    max-width: 400px;
+    padding:40px 50px 40px 50px;
+    height: 45;
+    background-color: white;
+    border-radius: 10px;
+}
+
+#remember {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    right: 0px;
+    bottom: 5px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+#SignUpPassword {
+    height: 34px;
+    width: 100%;
+    outline: none;
+    resize: none;
+    border-radius: 10px;
+    padding: 0px 30px 0 10px;
+    border: 1px solid #cfcfcf;
+    cursor: pointer;
+    position: relative;
+    bottom: 0px;
+    right: 20px;
+}
+
+#ConfirmPassword {
+    height: 34px;
+    width: 100%;
+    outline: none;
+    resize: none;
+    border-radius: 10px;
+    padding: 0px 30px 0 10px;
+    border: 1px solid #cfcfcf;
+    cursor: pointer;
+    position: relative;
+    bottom: -5px;
+    right: 20px;
+}
+
+#acceptArea{
+    width: 50px;
+    height: 20px;
+    cursor: pointer;
+    position: absolute;
+    top: 60px;
+    left: 20px;
+
+}
+
+#remember2 {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    font-size: 14px;
+    margin: 20px 0 20px;
+}
+
+#remember2 a{
+    text-decoration: none;
+    font-weight: 600;
+    color: #29abe2;
+}
+
+#SignUp {
+    font-size: 24px;
+    width: 400px;
+    padding: 30px 10px 30px;
+    background-color: white;
+    border-radius: 20px;
+    position: relative;
+}
+
+::placeholder {
+    color: #cfcfcf;
+    opacity: 1;
+}
+
+#pic1{
+    width: 27px !important;
+    height: 26px !important;
+    position: relative;
+}
+#pic2{
+    
+bottom: 11px !important;
+    
+width: 26px !important;
+    
+height: 24px !important;
+}
+#pic3{
+    
+width: 20px !important;
+    
+height: 20px !important;
+    
+right: -7px !important;
+    
+bottom: 8px !important;
+}
+#pic4{
+    
+width: 20px !important;
+    
+height: 20px !important;
+    
+right: -7px !important;
+    
+bottom: 2px !important;
+}
+
+#backSignUp {
+    position: absolute;
+    top: 77px;
+    left: 65px;
+    cursor: pointer;
+}
+
+#horizontalLine2 {
+    width: 110px;
+    margin-top: 10px;
+    height: 2px;
+    background-color: #29abe2;
+}
+
+#SignUp img {
+    bottom: 9px;
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    right: -10px;
+}
+
+#login_buttons{
+    display: flex;
+    justify-content: center;
+}
+
+#login_content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+}
+
+form textarea{
+    height: 24px;
+    width: 100%;
+    outline: none;
+    resize: none;
+    border-radius: 10px;
+    padding: 10px 30px 0 10px;
+    border: 1px solid #cfcfcf;
+    cursor: pointer;
+}
+#SignUp textarea{
+    position: relative;
+    right: 20px;
+    border: 1px solid #cfcfcf;
+}
+
+
+#password {
+    width: 22px;
+    height: 19px;
+    position: absolute;
+    right: -26px;
+    bottom: 8px;
+    border-radius: 10px;
+}
+
+#email {
+    position: absolute;
+    right: -35px;
+    bottom: 7px;
+    border-radius: 10px;
+    height: 26px;
+    width: 29px;
+}
+
+#SignUpH {
+    font-weight: 600;
+    font-size: 40px;
+}
+
+#textarea1 {
+    position: relative;
+    right: 20px;
+    width: 300px;
+}
+
+#textarea2 {
+    position: relative;
+    right: 20px;
+    width: 311px;
+}
+
+#Password {
+    height: 34px;
+    width: calc(100% - 10px);
+    outline: none;
+    resize: none;
+    border-radius: 10px;
+    padding: 0px 30px 0 10px;
+    border: 1px solid #cfcfcf;
+    cursor: pointer;
+    position: relative;
+    bottom: 0;
+    left: 5px;
+}
+
+@media(max-width:1300px){
+    #signup {
+        position: relative;
+        top: 40px;
+        display: flex;
+        bottom: 265px;
+        gap: 20px;
+        font-size: 20px;
+        right: 0;
+    }
+
+    #login_content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 415px;
+        width: 100%;
+    }
+
+    #login_buttons {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        margin-top: 10px;
+    }
+
+    #GuestloginButton {
+        border-radius: 10px;
+        width: 145px;
+        background-color: #f6f7f8;
+        border: 1px solid #2a3647;
+        padding: 8px 15px;
+        color: #2a3647;
+        position: relative;
+        left: 0;
+        font-size: 18px;
+    }
+
+    #loginButton {
+        width: 145px;
+        border-radius: 10px;
+        border: none;
+        background-color: #2a3647;
+        padding: 8px 15px;
+        color: #f6f7f8;
+        margin-bottom: 10px;
+        font-size: 18px;
+        position: relative;
+        right: 0px;
+    }
+
+    #Login {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        margin: 20px;
+        font-size: 32px;
+        font-weight: 700;
+        position: relative;
+        right: 0px;
+    }
+
+    #login {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        width: 45%;
+        max-width: 400px;
+        padding: 40px 50px 40px 50px;
+        background-color: white;
+        border-radius: 40px;
+    }
+}
+
+@media(max-width:800px){
+
+    #signup {
+        position: absolute;
+        top: auto;
+        display: flex;
+        bottom: 45px;
+        gap: 20px;
+        font-size: 17px;
+        right: auto;
+    }
+
+    #footer {
+        position: absolute;
+        bottom: 5px;
+        gap: 20px;
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        color: #a8a8a8;
+    }
+
+    #login {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        width: calc(100% - 40px);
+        max-width: 800px;
+        padding: 0px 8px 10px 8px;
+        background-color: white;
+        border-radius: 40px;
+        min-width: 300px;
+    }
+
+    #SignUp {    
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        width: calc(100% - 140px);
+        max-width: 800px;
+        padding: 40px 50px 40px 50px;
+        background-color: white;
+        border-radius: 40px;
+        min-width: 300px;
+    }
+
+    #remember {
+        display: flex;
+        justify-content: center;
+        position: relative;
+        right: 0;
+        bottom: 5px;
+        font-size: 14px;
+        cursor: pointer;
+    }
+
+    #JoinLogo {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+    }
+
+    #JoinLogo img{
+        width: 10vh;
+        z-index: 2;
+    }
+
+    #signup button {
+        border-radius: 10px;
+        border: none;
+        background-color: #2a3647;
+        padding: 5px 15px;
+        color: #f6f7f8;
+        position: relative;
+        bottom: 6px;
+        font-size: 18px;
+    }
+
+    #SignUpModal {
+        top: 0;
+        width: 100%;
+        height: 100vh;
+        position: fixed;
+        background-color: #f6f7f8;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 3;
+    }
+
+    #backSignUp img {
+        position: absolute;
+        top: -13px;
+        left: -25px;
+        cursor: pointer;
+    }
+}
+
+@media (max-height: 700px) {
+    #login {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        width: calc(100% - 16px);
+        max-width: 800px;
+        padding: 0px 8px 10px 8px;
+        background-color: white;
+        border-radius: 0;
+        min-width: 300px;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+    }
+
+    #JoinLogo {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        z-index: 2;
+    }
+
+    #JoinLogo img {
+        width: 50px !important;
+    }
+
+    #backSignUp img {
+        position: absolute;
+        top: -13px;
+        left: -25px;
+        cursor: pointer;
+    }
+
+    #SignUp {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        width: calc(100% - 100px);
+        max-width: 800px;
+        padding: 20px 50px 20px 50px !important;
+        background-color: white;
+        border-radius: 0;
+        min-width: 300px;
+        bottom: 0;
+        top: 0;
+        height: 100%;
+    }
+
+    #SignUpH {
+        font-weight: 600;
+        font-size: 24px;
+        margin-top: 0px;
+    }
+
+    #backSignUp img {
+        position: absolute;
+        top: -50px;
+        left: 15px;
+        cursor: pointer;
+    }
+
+    #horizontalLine2 {
+        width: 80px;
+        margin: 5px 0 10px !important;
+        height: 2px;
+        background-color: #29abe2;
+    }
+
+    element.style {
+        font-weight: 600;
+        font-size: 28px;
+    }
+
+    form textarea {
+        height: 22px;
+        width: 100%;
+        outline: none;
+        resize: none;
+        border-radius: 10px;
+        padding: 8px 30px 0 10px;
+        border: 1px solid #cfcfcf;
+        cursor: pointer;
+    }
+
+    #pic1 {
+        width: 27px !important;
+        height: 26px !important;
+        position: relative;
+    }
+
+    #pic2 {
+        bottom: 12px !important;
+        width: 26px !important;
+        height: 24px !important;
+    }
+
+    #pic3 {
+        width: 20px !important;
+        height: 18px !important;
+        right: -7px !important;
+        bottom: 15px !important;
+    }
+
+    #pic4 {
+        width: 20px !important;
+        height: 18px !important;
+        right: -7px !important;
+        bottom: 15px !important;
+    }
+
+    #SignUpPassword {
+        height: 30px;
+        width: 100%;
+        outline: none;
+        resize: none;
+        border-radius: 10px;
+        padding: 0px 30px 0 10px;
+        border: 1px solid #cfcfcf;
+        cursor: pointer;
+        position: relative;
+        bottom: 9px;
+        right: 20px;
+    }
+
+    #ConfirmPassword {
+        height: 30px;
+        width: 100%;
+        outline: none;
+        resize: none;
+        border-radius: 10px;
+        padding: 0px 30px 0 10px;
+        border: 1px solid #cfcfcf;
+        cursor: pointer;
+        position: relative;
+        bottom: 9px;
+        right: 20px;
+    }
+
+    #remember2 {
+        display: flex;
+        justify-content: center;
+        position: relative;
+        font-size: 14px;
+        margin: 5px 0 10px;
+    }
+
+    #loginButton2 {
+        border-radius: 10px;
+        border: none;
+        background-color: #2a3647;
+        padding: 5px 12px;
+        color: #f6f7f8;
+        position: relative;
+        width: fit-content;
+        font-size: 16px;
+        position: relative;
+        right: 0px;
+    }
+
+    #footerSignup {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        width: 100%;
+        bottom: 6px;
+    }
+
+    #SignUpModal {
+        top: 0;
+        width: 100%;
+        height: 100vh;
+        position: fixed;
+        background-color: #f6f7f8;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 3;
+    }
+
+    #Email{
+        height: 27px !important;
+        width: 100%;
+        outline: none;
+        resize: none;
+        border-radius: 10px;
+        padding: 8px 30px 0 10px;
+        border: 1px solid #cfcfcf;
+        cursor: pointer;
+    }
+
+    #email {
+        position: absolute;
+        right: -35px;
+        bottom: 9px;
+        border-radius: 10px;
+        height: 26px;
+        width: 26px;
+    }
+
+    #password {
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        right: -32px;
+        bottom: 11px;
+        border-radius: 10px;
+    }
+
+    #SignUpEmail{
+        bottom: 3px;
+    }
+
+
+    #JoinLogo {
+        position: absolute;
+        top: 15px;
+        left: 20px;
+        z-index: 2;
+    }
+
+    #textarea1 {
+        position: relative;
+        right: 20px;
+    }
+
+    #textarea2 {
+        position: relative;
+        right: 20px;
+    }
+
+    #textarea1 img{
+        right: -35px;
+        top: 6px;
+    }
+
+    #textarea2 img{
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        right: -27px;
+        bottom: 8px;
+        border-radius: 10px;
+    }
+
+    #Password {
+        height: 34px;
+        width: calc(100% - 10px);
+        outline: none;
+        resize: none;
+        border-radius: 10px;
+        padding: 0px 30px 0 10px;
+        border: 1px solid #cfcfcf;
+        cursor: pointer;
+        position: relative;
+        bottom: 0;
+        left: 5px;
+    }
+}
+
+@media (max-height: 500px) {
+    #email {
+        position: absolute;
+        right: -35px;
+        bottom: 9px;
+        border-radius: 10px;
+        height: 26px;
+        width: 26px;
+    }
+
+    #Login {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        margin: 15px;
+        font-size: 32px;
+        font-weight: 700;
+        position: relative;
+        right: 0px;
+    }
+
+    #JoinLogo img {
+        width: 35px !important;
+    }
+
+    #login_buttons {
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        margin-top: 20px;
+    }
+
+    #remember {
+        display: flex;
+        justify-content: center;
+        position: relative;
+        right: 0;
+        bottom: 5px;
+        font-size: 14px;
+        cursor: pointer;
+        margin: 0;
+    }
+
+    #loginButton {
+        width: 101px;
+        border-radius: 10px;
+        border: none;
+        background-color: #2a3647;
+        padding: 0px 15px;
+        color: #f6f7f8;
+        margin-bottom: 10px;
+        font-size: 18px;
+        position: relative;
+        right: 0px;
+        height: 29px;
+    }
+
+    #GuestloginButton {
+        border-radius: 10px;
+        width: 100px;
+        background-color: #f6f7f8;
+        border: 1px solid #2a3647;
+        padding: 0px 15px;
+        color: #2a3647;
+        position: relative;
+        left: 0;
+        font-size: 18px;
+        height: 30px;
+    }
+
+    #signup {
+        position: absolute;
+        top: auto;
+        display: flex;
+        bottom: 30px;
+        gap: 20px;
+        font-size: 17px;
+        right: auto;
+    }
+
+    #footer {
+        position: absolute;
+        bottom: 5px;
+        gap: 20px;
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        color: #a8a8a8;
+    }
+
+    #remember {
+        display: flex;
+        justify-content: center;
+        position: relative;
+        right: 0;
+        bottom: 0px;
+        font-size: 14px;
+        cursor: pointer;
+        margin: 5px 0 0 0;
+    }
+
+    #textarea1{
+        width: 75%;
+        position: relative;
+        right: 20px;
+        margin-bottom: 5px;
+    }
+
+    #textarea2{
+        width: 75%;
+        position: relative;
+        right: 20px;
+        margin-bottom: 5px
+    }
+}

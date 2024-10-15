@@ -1,0 +1,130 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join</title>
+    <link rel="stylesheet" href="styles/boardStyle.css">
+    <link rel="stylesheet" href="styles/summary.css">
+    <link rel="icon" type="image/x-icon" href="/./assets/img/Logo for Favicon construction.svg">
+
+    <script src="js/boardScript.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/summary.js"></script>
+    <script src="js/header.js"></script>
+    <script>document.addEventListener('DOMContentLoaded', function() {
+        const imageElement = document.getElementById('divLeft1');
+        const imageElement5 = document.getElementById('Picture1');
+        imageElement.addEventListener('mouseover', function() {
+            imageElement5.src = "assets/img/summary_blue.png";
+            console.log("Hello")
+        });
+        imageElement.addEventListener('mouseout', function() {
+            imageElement5.src = "assets/img/SummaryLogo.png";
+        });
+        const imageElement2 = document.getElementById('divLeft2');
+        const imageElement6 = document.getElementById('Picture2');
+        imageElement2.addEventListener('mouseover', function() {
+            imageElement6.src = "assets/img/addTask_blue.png";
+        });
+        imageElement2.addEventListener('mouseout', function() {
+            imageElement6.src = "assets/img/AddTaskLogo.png";
+        });
+        const imageElement3 = document.getElementById('divLeft3');
+        const imageElement7 = document.getElementById('Picture3');
+        imageElement3.addEventListener('mouseover', function() {
+            imageElement7.src = "assets/img/board_blue.png";
+        });
+        imageElement3.addEventListener('mouseout', function() {
+            imageElement7.src = "assets/img/BoardLogo.png";
+        });
+        const imageElement4 = document.getElementById('divLeft4');
+        const imageElement8 = document.getElementById('Picture4');
+        imageElement4.addEventListener('mouseover', function() {
+            imageElement8.src = "assets/img/contacts_blue.png";
+        });
+        imageElement4.addEventListener('mouseout', function() {
+            imageElement8.src = "assets/img/ContactsLogo.png";
+        });
+    });</script>
+</head>
+<body onload="renderUserSymbol()" style="background-color: #f6f7f8;">
+    <div id="Navbar">
+        <div id="LogoLeft"><img src="assets/img/LogoLeft.png" alt="JoinLogo"></div>
+        <div id="NavLeft">
+            <a href="summary.html"><div class="NavGap hover" id="divLeft1"><div><img id="Picture1" src="assets/img/SummaryLogo.png" alt="Summary Logo"></div><div>Summary</div></div></a>
+            <a href="add-task.html"><div class="NavGap hover" id="divLeft2"><div><img id="Picture2" src="assets/img/AddTaskLogo.png" alt="Add Tasks Logo"></div><div style="width: 80px;">Add Task</div></div></a>
+            <a href="board.html"><div class="NavGap hover" id="divLeft3"><div><img id="Picture3" src="assets/img/BoardLogo.png" alt="Board Logo"></div><div>Board</div></div></a>
+            <a href="contacts.html"><div class="NavGap hover" id="divLeft4"><div><img id="Picture4" src="assets/img/ContactsLogo.png" alt="Contacts Logo"></div><div>Contacts</div></div></a>
+        </div>
+        <div id="Impressum">
+            <div style="height: 25px;padding: 10px 68px 4px 68px;"><a style="color: white;text-decoration: none;" href="privacy.html">Privacy Policy</a></div>
+            <div style="height: 25px;padding: 10px 73px 3px 73px;"><a style="color: white;text-decoration: none;" href="legal.html">Legal Notice</a></div>
+        </div>
+    </div>
+    <div id="header">
+        <div>Kanban Project Management Tool</div>
+        <div style="display: flex;align-items: center;"><a href="help.html"><img src="assets/img/help.png" alt=""></a><div id="user" onclick="openArea()"></div></div>
+        <div id="AccountArea" style="display: none;">
+            <div style="margin-bottom: 20px;"><a href="">Account</a></div>
+            <div style="margin-bottom: 20px;"><a href="">Legal Notice</a></div>
+            <div style="margin-bottom: 20px;"><a href="privacy.html">Privacy Policy</a></div>
+            <div onclick="logout()"><a href="index.html">Logout</a></div>
+        </div>
+    </div>
+    <div id="summaryArea">
+        <div style="display: flex;margin: 100px 0 0 50px;align-items: center;"><div style="font-size: 70px;font-weight: 600;">Join 360</div><div style="background-color: #29abe2;height: 70px;width: 5px;margin: 0 20px;"></div><div style="font-size: 29px;">Key Metrics at a Glance</div></div>
+        <div style="display: flex;align-items: center;height: calc(100% - 183px);">
+            <div style="display: flex;flex-direction: column;align-items: center;justify-content: center;margin-left: 5%;margin-right: 2.5%;">
+                <div style="display: flex;justify-content: space-evenly;width: 100%;/* margin-top: 50px; */">
+                    <div style="display: flex;align-items: center;margin: 0 0px 0 0;padding: 10px 20px;width: 220px;border-radius: 10px;margin-right: 20px;height: 120px;background-color: white;">
+                        <div><img src="assets/img/edit_round.png" alt="" style="width: 110px;margin-right: 20px;"></div>
+                        <div>
+                            <div id="ToDoNumber" style="font-weight: 600;text-align: center;font-size: 50px;"></div>
+                            <div style="font-size: 20px;">To-do</div>
+                        </div>
+                    </div>
+                    <div style="display: flex;align-items: center;display: flex;align-items: center;margin: 0 0px 0 0;padding: 10px 20px;width: 236px;border-radius: 10px;width: 220px;height: 120px;background-color: white;">
+                        <div><img src="assets/img/done_round.png" alt="" style="width: 110px;margin-right: 20px;"></div>
+                        <div>
+                            <div id="DoneNumber" style="font-weight: 600;text-align: center;font-size: 50px;"></div>
+                            <div style="font-size: 20px;">Done</div>
+                        </div>
+                    </div>
+                </div>
+                <div style="padding: 20px 20px;display: flex;align-items: center;font-size: 20px;width: 505px;border-radius: 10px;margin-top: 20px;margin-left: 0px;background-color: white;">
+                    <div style="display: flex;align-items: center;">
+                        <div><img src="assets/img/urgent_round.png" alt="" style="width: 110px;"></div>
+                        <div style="text-align: center;margin-left: 10px;padding: 10px 60px 10px 10px;border-right: 1px solid grey;">
+                            <div id="UrgentNumber" style="font-weight: 600;font-size: 50px;"></div>
+                            <div style="font-size: 20px;">Urgent</div>
+                        </div>
+                    </div>
+                    <div id="verticalLine"></div>
+                    <div style="margin-left: 54px;">
+                        <div id="Deadline" style="font-size: 24px;font-weight: 600;position: relative;bottom: 3px;"></div>
+                        <div style="position: relative;top: 3px;font-size: 20px;">Upcoming Deadline</div>
+                    </div>
+                    
+                </div>
+                <div style="display: flex;width: 100%;margin-top: 20px;margin-left: 0px;justify-content: space-between;">
+                    <div style="border-radius: 10px;/* border: 1px solid black; */text-align: center;padding: 28px 15px;height: 110px;position: relative;top: 0px;display: flex;flex-direction: column;align-items: center;margin-top: 0px;background-color: white;width: 140px;">
+                        <div id="TasksInBoard" style="/* padding: 28px 15px; */font-weight: 600;font-size: 50px;margin-top: 0px;/* top: 5px; */"></div>
+                        <div style="font-size: 22px;width: 90px;">Tasks in Board</div>
+                    </div>
+                    <div style="display: flex;flex-direction: column;text-align: center;padding: 28px 15px;/* border: 1px solid black; */border-radius: 10px;background-color: white;width: 140px;">
+                        <div id="TasksInProgress" style="font-weight: 600;font-size: 50px;margin-top: 0px;"></div>
+                        <div style="font-size: 22px;">Tasks In Progress</div>
+                    </div>
+                    <div style="display: flex;flex-direction: column;text-align: center;padding: 28px 15px;border-radius: 10px;background-color: white;width: 140px;">
+                        <div id="AwaitingFeedback" style="font-weight: 600;font-size: 50px;margin-top: 0px;"></div>
+                        <div style="font-size: 22px;">Awaiting Feedback</div>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: start;font-size: 40px;width: 50%;display: flex;align-items: center;flex-direction: column;">
+                <div style="font-weight: 600;">Good Morning</div>
+                <div id="UserSummary" style="color: #29abe2;font-weight: 600;font-size: 50px;"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,17 +1,81 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-16">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Join</title>
-    <link rel="stylesheet" href="./fonts/fonts.css">
-    <link rel="stylesheet" href="./styles/style.css">
-    <link rel="icon" type="image/x-icon" href="/./assets/img/Logo for Favicon construction.svg">
-    <script src="./scripts/script.js"></script>
-    <script src="./scripts/template.js"></script>
-    <script src="./scripts/data.js"></script>
+    <link rel="stylesheet" href="styles/login.css">
+    <link rel="icon" type="image/x-icon" href="/./assets/img/LogoforFaviconconstruction.svg">
+    <script src="js/login.js"></script>
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
+    <meta http-equiv="pragma" content="no-cache">
 </head>
-<body>
+<body onload="checkWindowWidth();Login()">
+    <div id="JoinOverlay" style="display: flex;"></div>
+    <div id="JoinLogo"><img src="assets/img/JoinLogo.png" alt=""></div>
+    <div id="login_content">
+        <div id="login">
+            <div id="Login">
+                <div>Log in</div>
+                <div id="horizontalLine"></div>
+            </div>
+            <div style="width: 100%;display: flex;flex-direction: column;align-items: center;">
+                <form id="form" style="width: 100%;display: flex;flex-direction: column;align-items: center;">
+                    <div id="textarea1">
+                        <textarea name="Email" id="Email" placeholder="Email" required></textarea>
+                        <img id="email" src="assets/img/letter.png" alt="">
+                    </div>
+                    <div id="textarea2">
+                        <input type="text" oninput="starLogin()" name="Password" id="Password" placeholder="Password" required></input>
+                        <div id="replace" style="cursor: pointer;"><img id="password" src="assets/img/LockLogin.png" alt=""></div>
+                    </div>
+                </form>
+                <div id="remember">
+                    <div id="cubus" onclick="remember()"></div>
+                    <div onclick="remember()">Remember me</div>
+                </div>
+                <div id="login_buttons">
+                    <button type="submit" onclick="login2()" id="loginButton">Log in</button>
+                    <button type="button" onclick="guest()" id="GuestloginButton">Guest Log in</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="signup">Not a Join user? <button onclick="signup()">Sign up</button></div>
+
+    <div id="footer">
+        <div><a href="privacy.html">Privacy Policy</a></div>
+        <div><a href="impressum.html">Legal notice</a></div>
+    </div>
+
+    <div id="SignUpModal" style="display: none;">
+        <div id="JoinLogo"></div>
+        <div id="SignUp">
+            <div style="display: flex;flex-direction: column;align-items: center;">
+                <div id="SignUpH">Sign up</div>
+                <div id="backSignUp" onclick="backToLogin()"><img src="assets/img/backSignUp.png" alt="Back to Login Button"></div>
+                <div style="margin: 10px 0 20px;" id="horizontalLine2"></div>
+                <form id="myForm">
+                    <div style="position: relative;"><textarea placeholder="Name" name="name" id="SignUpName"></textarea><img id="pic1" src="assets/img/avatar.png" alt=""></div>
+                    <div style="position: relative;"><textarea placeholder="Email" name="email" id="SignUpEmail"></textarea><img id="pic2" src="assets/img/letter.png" alt=""></div>
+                    <div style="position: relative;"><input type="text" oninput="starSignUp()" placeholder="Password" name="password" id="SignUpPassword"></input><div id="replace2" style="cursor: pointer;"><img id="pic3" src="assets/img/LockLogin.png" alt=""></div></div>
+                    <div style="position: relative;"><input type="text" oninput="starConfirmSignUp()" autocomplete="off" list="off" placeholder="Confirm Password" name="SignUpConfirmPassword" id="ConfirmPassword"></input><div id="replace3" style="cursor: pointer;"><img id="pic4" src="assets/img/LockLogin.png" alt=""></div></div>
+                </form>
+                <div onclick="accept()" id="remember2">
+                    <div id="cubus2"></div>
+                    <div id="acceptArea"></div>
+                    <div>I accept the <a href="">Privacy policy</a></div>
+                </div>
+                <div><button type="submit" onclick="signUp()" id="loginButton2">Sign up</button></div>
+            </div>
+        </div>
+
+        <div id="footerSignup">
+            <div><a href="">Privacy Policy</a></div>
+            <div><a href="">Legal notice</a></div>
+        </div>
     
+    </div>
 </body>
 </html>

@@ -1,0 +1,7 @@
+#summaryArea {
+    position: absolute;
+    left: 230px;
+    top: 90px;
+    width: calc(100% - 230px);
+    height: calc(100% - 90px);
+}

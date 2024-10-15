@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-16">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/login.css">
+    <script src="js/login.js"></script>
+    <script src="js/account.js"></script>
+</head>
+<body onload="Login()">
+    <div id="JoinOverlay" style="display: none;">
+        <div><img src="assets/img/JoinLogo.png" alt=""></div>
+    </div>
+    <div id="JoinLogo"><img src="assets/img/JoinLogo.png" alt=""></div>
+    <div id="signup">Not a Join user? <button onclick="signup()">Sign up</button></div>
+    <div id="login_content">
+        <div id="login">
+            <div id="Login">
+                <div>Log in</div>
+                <div id="horizontalLine"></div>
+            </div>
+            <div style="width: 100%;display: flex;flex-direction: column;align-items: center;">
+                <form onsubmit="loadData()" style="width: 100%;display: flex;flex-direction: column;align-items: center;">
+                    <div style="width: 65%;position: relative;right: 30px;margin-bottom: 20px;">
+                        <textarea name="Email" id="Email" placeholder="Email" required></textarea>
+                        <img id="email" src="assets/img/letter.png" alt="">
+                    </div>
+                    <div style="width: 65%;position: relative;right: 30px;margin-bottom: 5px;">
+                        <input type="password" oninput="starLogin()" name="Password" id="Password" placeholder="Password" required></input>
+                        <img id="password" src="assets/img/LockLogin.png" alt="">
+                    </div>
+                </form>
+                <div id="remember">
+                    <div id="cubus" onclick="remember()"></div>
+                    <div onclick="remember()">Remember me</div>
+                </div>
+                <div id="login_buttons">
+                    <button type="button" type="submit" onclick="login2()" id="loginButton">Log in</button>
+                    <button type="button" onclick="guest()" id="GuestloginButton">Guest Log in</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer">
+        <div><a href="privacy.html">Privacy Policy</a></div>
+        <div><a href="impressum.html">Legal notice</a></div>
+    </div>
+
+    <div id="SignUpModal" style="display: none;">
+        <div id="JoinLogo"><img src="assets/img/JoinLogo.png" alt=""></div>
+        <div id="SignUp">
+            <div style="display: flex;flex-direction: column;align-items: center;">
+                <div style="font-weight: 600;font-size: 40px;">Sign up</div>
+                <div id="backSignUp" onclick="backToLogin()"><img src="assets/img/backSignUp.png" alt="Back to Login Button"></div>
+                <div style="margin: 10px 0 20px;" id="horizontalLine2"></div>
+                <form id="myForm" onsubmit="signUp(event)">
+                    <div style="position: relative;"><textarea placeholder="Name" name="name" id="SignUpName"></textarea><img id="pic1" src="assets/img/avatar.png" alt=""></div>
+                    <div style="position: relative;"><textarea placeholder="Email" name="email" id="SignUpEmail"></textarea><img id="pic2" src="assets/img/letter.png" alt=""></div>
+                    <div style="position: relative;"><input type="password" oninput="starSignUp()" placeholder="Password" name="password" id="SignUpPassword"></input><img id="pic3" src="assets/img/LockLogin.png" alt=""></div>
+                    <div style="position: relative;"><input type="password" oninput="starConfirmSignUp()" autocomplete="off" list="off" placeholder="Confirm Password" name="SignUpConfirmPassword" id="ConfirmPassword"></input><img id="pic4" src="assets/img/LockLogin.png" alt=""></div>
+                </form>
+                <div onclick="accept()" id="remember2">
+                    <div id="cubus2"></div>
+                    <div id="acceptArea"></div>
+                    <div>I accept the <a href="">Privacy policy</a></div>
+                </div>
+                <div><button onclick="signUp()" type="submit" id="loginButton2">Sign up</button></div>
+            </div>
+        </div>
+
+        <div id="footerSignup">
+            <div><a href="">Privacy Policy</a></div>
+            <div><a href="">Legal notice</a></div>
+        </div>
+    
+    </div>
+    <script>
+        document.getElementById("myForm").addEventListener("submit", function(event){
+            event.preventDefault(); // Prevents the default form submission
+            alert("Form submitted without refreshing the page!");
+        });
+    </script>
+</body>
+</html>

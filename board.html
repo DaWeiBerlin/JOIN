@@ -1,50 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta charset="UTF-16">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Join</title>
     <link rel="stylesheet" href="styles/boardStyle.css">
-    <link rel="icon" type="image/x-icon" href="/./assets/img/Logo for Favicon construction.svg">
+    <link rel="icon" type="image/x-icon" href="/./assets/img/LogoforFaviconconstruction.svg">
     <script src="js/boardScript.js"></script>
+    <script src="js/header.js"></script>
+    <script src="js/login.js"></script>
 </head>
-<body onload="updateHTML()">
+
+<body onload="saveModal();loadAccounts();loadData2();redirect();renderUserSymbol();loadData5('./accounts');checkWindowWidth2();guest2()">
     <div id="Navbar">
         <div id="LogoLeft"><img src="assets/img/LogoLeft.png" alt="JoinLogo"></div>
         <div id="NavLeft">
-            <div class="NavGap hover"><div><img src="assets/img/SummaryLogo.png" alt="Summary Logo"></div><div>Summary</div></div>
-            <div class="NavGap hover"><div><img src="assets/img/AddTaskLogo.png" alt="Add Tasks Logo"></div><div style="width: 80px;">Add Task</div></div>
-            <div class="NavGap hover"><div><img src="assets/img/BoardLogo.png" alt="Board Logo"></div><div>Board</div></div>
-            <div class="NavGap hover"><div><img src="assets/img/ContactsLogo.png" alt="Contacts Logo"></div><div>Contacts</div></div>
+            <a href="summary.html"><div class="NavGap hover" id="divLeft1"><div><img id="Picture1" src="assets/img/SummaryLogo.png" alt="Summary Logo"></div><div>Summary</div></div></a>
+            <a href="add-task.html"><div class="NavGap hover" id="divLeft2"><div><img id="Picture2" src="assets/img/AddTaskLogo.png" alt="Add Tasks Logo"></div><div style="width: 80px;">Add Task</div></div></a>
+            <a href="board.html"><div class="NavGap hover" id="divLeft3"><div><img id="Picture3" src="assets/img/BoardLogo.png" alt="Board Logo"></div><div>Board</div></div></a>
+            <a href="contacts.html"><div class="NavGap hover" id="divLeft4"><div><img id="Picture4" src="assets/img/ContactsLogo.png" alt="Contacts Logo"></div><div>Contacts</div></div></a>
         </div>
         <div id="Impressum">
-            <div>Privacy Policy</div>
-            <div>Legal Notice</div>
+            <div style="height: 25px;padding: 10px 65px 4px 66px;"><a style="color: white;text-decoration: none;" href="privacy.html">Privacy Policy</a></div>
+            <div style="height: 25px;padding: 10px 70px 3px 70px;"><a style="color: white;text-decoration: none;" href="legal.html">Legal Notice</a></div>
         </div>
     </div>
     <div id="header">
-        <div>Kanban Project Management Tool</div>
-        <div style="display: flex;align-items: center;"><img src="assets/img/help.png" alt=""><div id="user">SM</div></div>
-    </div>
-    <div id="BoardNewTask"><div style="position: relative;top: 18px;font-size: 64px;">Board</div><div style="position: absolute;top: 73px;right: 200px;width: 264px;display: flex;height: 41px;border: 2px solid;border-radius: 10px;"><div ><textarea placeholder="Find Task" name="FindTask" id="FindTask"></textarea></div><div><img src="assets/img/Lupe.png" alt=""></div></div><div><button id="AddTaskButton" onclick="addTask()">Add Task +</button></div></div>
-    <div id="Kanban">
-        <div class="drag-area b1" id="ToDo" ondrop="moveTo('ToDo')" ondragleave="removeHighlight('ToDo')" ondragover="allowDrop(event); highlight('ToDo')"></div>
-        <div class="drag-area" id="InProgress" ondrop="moveTo('InProgress')" ondragleave="removeHighlight('InProgress')" ondragover="allowDrop(event); highlight('InProgress')"></div>
-        <div class="drag-area" id="AwaitFeedback" ondrop="moveTo('AwaitFeedback')" ondragleave="removeHighlight('AwaitFeedback')" ondragover="allowDrop(event); highlight('AwaitFeedback')"></div>
-        <div class="drag-area b2" id="Done" ondrop="moveTo('Done')" ondragleave="removeHighlight('Done')" ondragover="allowDrop(event); highlight('Done')"></div>
-    </div>
-    <div id="modal" style="display: none;background-color: rgba(40, 40, 40, 0.204);">
-        <div style="background-color: #f6f7f8;position: relative;height: 550px;padding: 20px 20px;border-radius: 10px;">
-            <div style="font-size: 30px;">Add Task</div>
-            <div style='display: flex;height: 40px;padding: 20px 0 10px;align-items: center;'><div>Aufgabe</div><div><textarea name="Aufgabe" id="Aufgabe" placeholder="Aufgabe" style="position: absolute;top: 75px;right: 35px;width: 50%;border-bottom-right-radius: 10px;border-top-right-radius: 10px;"></textarea></div></div>
-            <div style='display: flex;height: 40px;padding-bottom: 10px;align-items: center;'><div>Zeitraum</div><div><textarea name="Zeitraum" id="Zeitraum" placeholder="Zeitraum" style="position: absolute;top: 125px;right: 35px;width: 50%;border-bottom-right-radius: 10px;border-top-right-radius: 10px;"></textarea></div></div>
-            <div style='display: flex;height: 40px;padding-bottom: 10px;align-items: center;'><div>Teammitglieder</div><div><textarea name="Teammitglieder" id="Teammitglieder" placeholder="Teammitglieder" style="position: absolute;top: 175px;right: 35px;width: 50%;border-bottom-right-radius: 10px;border-top-right-radius: 10px;"></textarea></div></div>
-            <div style='display: flex;height: 40px;padding-bottom: 10px;align-items: center;'><div>Stichworte</div><div><textarea name="Stichworte" id="Stichworte" placeholder="Stichworte" style="position: absolute;top: 225px;right: 35px;width: 50%;border-bottom-right-radius: 10px;border-top-right-radius: 10px;"></textarea></div></div>
-            <div style='display: flex;height: 40px;padding-bottom: 10px;align-items: center;'><div>Beschreibung</div><div><textarea name="Beschreibung" id="Beschreibung" placeholder="Beschreibung" style="position: absolute;top: 275px;right: 35px;width: 50%;border-bottom-right-radius: 10px;border-top-right-radius: 10px;height: 200px;"></textarea></div></div>
+        <a href="summary.html" id="Logo" style="display: none;"><img style="border-radius: 0;width: 40px;height: 40px;position: relative;top: 3px;" src="assets/img/LogoforFaviconconstruction.svg" alt=""></a>
+        <div id="Kanban2">Kanban Project Management Tool</div>
+        <div style="display: flex;align-items: center;margin-right: 0px;"><a id="help" href="help.html"><img src="assets/img/help.png" alt=""></a><div id="user" onclick="openArea()"></div></div>
+        <div id="AccountArea" style="display: none;">
+            <div style="margin-bottom: 20px;"><a href="">Account</a></div>
+            <div style="margin-bottom: 20px;"><a href="">Legal Notice</a></div>
+            <div style="margin-bottom: 20px;"><a href="privacy.html">Privacy Policy</a></div>
+            <div id="logout" onclick="logout()"><a>Logout</a></div>
         </div>
-        <div>Clear<img src="assets/img/close.png" alt="Close Button"></div>
-        <div>Create Task<img src="assets/img/create.png" alt="Create Task Button"></div>
     </div>
+    <div id="BoardNewTask"><div id="h1"><div id="h2">Board</div><div><button id="AddTaskButton" onclick="addTaskse('todo')">Add Task +</button></div></div><div id="textareaUpper"><div id="textarea"><div id="h3"><textarea id="textareaBoard" oninput="searchTask()" placeholder="Find Task" name="FindTask" id="FindTask"></textarea></div><div><img src="assets/img/Lupe.png" alt=""></div></div></div> </div>
+    <div id="Kanban">
+        <div id="TODOFRAME"><div id="toDo"><div>To Do</div><div style="cursor: pointer;" onclick="addTaskse('todo')"><img src="assets/img/plus.png"></div></div><div class="drag-area b1" id="ToDo" ondrop="moveTo('ToDo')" ondragleave="removeHighlight('ToDo')" ondragover="allowDrop(event); highlight('ToDo')"></div></div>
+        <div id="TODOFRAME"><div id='inProgress'><div>In Progress</div><div style='cursor: pointer;' onclick="addTaskse(`InProgress`)"><img src='assets/img/plus.png'></div></div><div class="drag-area" id="InProgress" ondrop="moveTo('InProgress')" ondragleave="removeHighlight('InProgress')" ondragover="allowDrop(event); highlight('InProgress')"></div></div>
+        <div id="TODOFRAME"><div id='awaitFeedback'><div>Await Feedback</div><div style='cursor: pointer;' onclick="addTaskse('AwaitFeedback')"><img src='assets/img/plus.png'></div></div><div class="drag-area" id="AwaitFeedback" ondrop="moveTo('AwaitFeedback')" ondragleave="removeHighlight('AwaitFeedback')" ondragover="allowDrop(event); highlight('AwaitFeedback')"></div></div>
+        <div id="TODOFRAME"><div id='done'><div>Done</div><div style='cursor: pointer;' onclick="addTaskse(`Done`)"><img src='assets/img/plus.png'></div></div><div class="drag-area b2 last" id="Done" ondrop="moveTo('Done')" ondragleave="removeHighlight('Done')" ondragover="allowDrop(event); highlight('Done')"></div></div>
+    </div>
+    <div id="modal" style="display: none; background-color: rgba(40, 40, 40, 0.204);align-items: center;">
+        <div id="contentArea4">
+            <div id="header2">Add Task</div>
+            <div id="contentArea4Sub">
+                <div id="leftSide">
+                    <div id="leftSideSub">
+                        <label for="Title">Title<sup style="color: #ff8090;">*</sup></label>
+                        <textarea maxlength="80" name="Title" id="title2" placeholder="Enter a title"></textarea>
+                    </div>
+                    <div style="display: flex;flex-direction: column;">
+                        <label for="Description">Description</label>
+                        <textarea maxlength="2000" name="Description" id="description3" placeholder="Enter a Description"></textarea></div>
+                    <div style="display: flex;flex-direction: column;font-size: 16px;">
+                        <label for="">Assigned to</label>
+                        <div onclick="assign()" id="assigned3" value="Select contacts to assign" type="search"><div class="select">Select Contacts to Assign</div></div>
+                    <div id="assignButton2" onclick="assign()"><img src="assets/img/category_menu.png" alt=""></div>
+                    <div id="contactse" style="display: none;"></div>
+                </div>
+            </div>
+                <div id="verticalLine"></div>
+                <div id="rightSide">
+                    <div style="display: flex;flex-direction: column;">
+                        <label for="DueDate" style="margin-bottom: 5px;">Due Date <sup style="color: #ff8090;">*</sup></label>
+                        <input id="duedate" value="2024-08-24" type="date" style="border-radius: 5px;border: 1px solid grey;padding: 8px 6px;width: calc(100% - 50px);height: 24px;width: calc(100% - 13px);">
+                    </div>
+                    <div style="display: flex;flex-direction: column;margin-top: 17px;width: 100%;">
+                        <label for="Prio" style="margin-bottom: 5px;">Prio</label>
+                        <div id="Prio" style="display: flex;width: calc(100% - 50px);width: calc(100% + 0px);">
+                            <div onclick="addPrio('urgent')" id="Urgente" style="width: calc(30%);margin-right: 5%;">
+                                <button id="Urgenteb" style="display: flex;align-items: center;justify-content: center;height: 50px;width: 100%;background-color: white;border-radius: 5px;border: 1px solid grey;font-size: 17px;cursor: pointer;">
+                                    <div>Urgent</div>
+                                    <div>
+                                        <img id="urgent" src="assets/img/urgent.png" alt="Urgent Prority Button" style="width: 30px;position: relative;top: 1px;margin-left: 5px;">
+                                    </div>
+                                </button>
+                            </div>
+                            <div onclick="addPrio('medium')" id="Mediume" style="width: calc(30%);margin-right: 5%;">
+                                <button id="Mediumeb" style="display: flex;align-items: center;justify-content: center;height: 50px;width: 93px;border-radius: 5px;border: 1px solid grey;background-color: white;width: 100%;font-size: 17px;cursor: pointer;">
+                                    <div>Medium</div>
+                                    <div><img id="medium" src="assets/img/medium.png" alt="Medium Priority Button" style="width: 30px;position: relative;top: 1px;margin-left: 5px;"></div></button></div>
+                            <div onclick="addPrio('low')" id="Lowe" style="width: calc(30%);">
+                                <button id="Loweb" style="display: flex;align-items: center;justify-content: center;height: 50px;width: 93px;border-radius: 5px;border: 1px solid grey;background-color: white;width: 100%;font-size: 17px;cursor: pointer;">
+                                    <div>Low</div>
+                                    <div><img id="low" src="assets/img/low.png" alt="Low Priority Button" style="width: 30px;margin-left: 5px;position: relative;top: 2px;"></div>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="margin-top: 17px;display: flex;flex-direction: column;/* position: relative; */top: 11px;">
+                        <label for="Category" style="margin-bottom: 5px;width: 300px;">Category <sup style="color: #ff8090;">*</sup></label>
+                        <div onclick="category()" id="category" type="search" value="" style="cursor: pointer;width: calc(100% - 22px);height: 20px;padding: 10px;border-radius: 5px;border: 1px solid grey;background-color: white;font-size: 17px;z-index: 1;"><span id="span">Select Task Category</span><div style="position: absolute;left: calc(100% - 30px);top: 217px;"><img id="menu" src="assets/img/category_menu.png" alt="" style="width: 18px;"></div>  
+                    </div>
+                    <div id="categories" style="display: none;width: calc(100% - 22px);height: fit-content;background-color: white;padding: 10px;position: absolute;right: 0px;top: 228px;border: 1px solid grey;border-bottom-left-radius: 5px;border-bottom-right-radius: 5px;font-size: 18px;z-index: 0;"></div>
+                    <div id="tasks" style="margin: 17px 0;width: calc(100% - 12px);position: relative;left: 1px;top: 0px;"><label style="margin-top: 20px;" for="Subtasks">Subtasks</label>
+                        <div style="position: relative;"><textarea placeholder="Add new subtask" name="Subtasks" id="subtasksv" style="width: calc(100% - 1px);height: 29px;resize: none;border-radius: 5px;margin-top: 5px;padding: 12px 0 0 10px;position: relative;z-index: 2;"></textarea><img src="" alt=""></div>
+                        <div id="posiAdd" style="width: 14px;height: 14px;position: absolute;left: calc(100% + -19px);top: 36px;z-index: 3;"><img onclick="addsubtask()" src="assets/img/add.png" alt="add" style="cursor: pointer;width: 14px;right: -202px;"></div>
+                        <div id="subtasks2" style="display: none;width: calc(100% - 11px);flex-direction: column;height: 60px;justify-content: space-between;padding: 17px 10px 0px;position: relative;bottom: 30px;border-width: 1px;border-style: solid;border-color: transparent grey grey;border-image: initial;border-bottom-left-radius: 5px;border-bottom-right-radius: 5px;overflow-y: scroll;scrollbar-width: none;"></div>
+                    </div>
+                    </div>
+                </div>
+            
+            <div id="close2" onclick="closeModal()"><img src="assets/img/close.png" alt="close"></div>
+        </div>
+        <div id="buttonArea2">
+            <button onclick="clearb()" style="background-color: #ffffff;display: flex;padding: 7px 15px;justify-content: center;align-items: center;border-radius: 5px;cursor: pointer;">Clear<img src="assets/img/close.png" alt="" style="width: 20px;margin-left: 5px;font-weight: 600;"></button>
+            <button onclick="addTasks()" style="display: flex;justify-content: center;align-items: center;padding: 10px 15px;background-color: #2a3647;color: white;border-radius: 5px;border: 1px solid grey;margin-left: 15px;cursor: pointer;">Create Task<img src="assets/img/create.png" alt="" style="width: 20px;margin-left: 10px;"></button>
+        </div>
+        <div id="required"><sup style="color:#ff8090;">*</sup>This field is required</div>
+    </div>
+</div>
+<div style="display: none;" id="ModalTask">
+    <div id="openTask">
+        <div id="closeModalTask" onclick="closeTask()" style="cursor: pointer;"><img src="assets/img/close.png" alt="close" style="width: 20px;height: 20px;"></div>
+        <div id="modalCategory"></div>
+        <div id="modalTitle"></div>
+        <div id="modalDescription"></div>
+        <div id="modalDuedate"></div>
+        <div id="modalPrio"></div>
+        <div id="modalAssigned"></div>
+        <div id="modalSubtasks"></div>
+        <div id="modalButtons"></div>
+    </div>
+</div>
 </body>
 </html>
 

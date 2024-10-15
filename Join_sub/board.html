@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join</title>
+    <link rel="stylesheet" href="styles/boardStyle.css">
+    <link rel="icon" type="image/x-icon" href="/./assets/img/Logo for Favicon construction.svg">
+    <script src="js/boardScript.js"></script>
+    <script src="js/header.js"></script>
+    <script>document.addEventListener('DOMContentLoaded', function() {
+        const imageElement = document.getElementById('divLeft1');
+        const imageElement5 = document.getElementById('Picture1');
+        imageElement.addEventListener('mouseover', function() {
+            imageElement5.src = "assets/img/summary_blue.png";
+        });
+        imageElement.addEventListener('mouseout', function() {
+            imageElement5.src = "assets/img/SummaryLogo.png";
+        });
+
+        const imageElement2 = document.getElementById('divLeft2');
+        const imageElement6 = document.getElementById('Picture2');
+        imageElement2.addEventListener('mouseover', function() {
+            imageElement6.src = "assets/img/addTask_blue.png";
+        });
+        imageElement2.addEventListener('mouseout', function() {
+            imageElement6.src = "assets/img/AddTaskLogo.png";
+        });
+
+        const imageElement3 = document.getElementById('divLeft3');
+        const imageElement7 = document.getElementById('Picture3');
+        imageElement3.addEventListener('mouseover', function() {
+            imageElement7.src = "assets/img/board_blue.png";
+        });
+        imageElement3.addEventListener('mouseout', function() {
+            imageElement7.src = "assets/img/BoardLogo.png";
+        });
+
+        const imageElement4 = document.getElementById('divLeft4');
+        const imageElement8 = document.getElementById('Picture4');
+        imageElement4.addEventListener('mouseover', function() {
+            imageElement8.src = "assets/img/contacts_blue.png";
+        });
+        imageElement4.addEventListener('mouseout', function() {
+            imageElement8.src = "assets/img/ContactsLogo.png";
+        });
+    });</script>
+</head>
+<body onload="updateHTML();loadData()">
+    <div id="Navbar">
+        <div id="LogoLeft"><img src="assets/img/LogoLeft.png" alt="JoinLogo"></div>
+        <div id="NavLeft">
+            <a href="summary.html"><div class="NavGap hover" id="divLeft1"><div><img id="Picture1" src="assets/img/SummaryLogo.png" alt="Summary Logo"></div><div>Summary</div></div></a>
+            <a href="add-task.html"><div class="NavGap hover" id="divLeft2"><div><img id="Picture2" src="assets/img/AddTaskLogo.png" alt="Add Tasks Logo"></div><div style="width: 80px;">Add Task</div></div></a>
+            <a href="board.html"><div class="NavGap hover" id="divLeft3"><div><img id="Picture3" src="assets/img/BoardLogo.png" alt="Board Logo"></div><div>Board</div></div></a>
+            <a href="contacts.html"><div class="NavGap hover" id="divLeft4"><div><img id="Picture4" src="assets/img/ContactsLogo.png" alt="Contacts Logo"></div><div>Contacts</div></div></a>
+        </div>
+        <div id="Impressum">
+            <div style="height: 25px;padding: 10px 68px 4px 68px;"><a style="color: white;text-decoration: none;" href="privacy.html">Privacy Policy</a></div>
+            <div style="height: 25px;padding: 10px 73px 3px 73px;"><a style="color: white;text-decoration: none;" href="legal.html">Legal Notice</a></div>
+        </div>
+    </div>
+    <div id="header">
+        <div>Kanban Project Management Tool</div>
+        <div style="display: flex;align-items: center;"><a href="help.html"><img src="assets/img/help.png" alt=""></a><div id="user" onclick="openArea()"></div></div>
+        <div id="AccountArea" style="display: none;">
+            <div style="margin-bottom: 20px;"><a href="">Account</a></div>
+            <div style="margin-bottom: 20px;"><a href="">Legal Notice</a></div>
+            <div style="margin-bottom: 20px;"><a href="privacy.html">Privacy Policy</a></div>
+            <div onclick="logout()"><a href="index.html">Logout</a></div>
+        </div>
+    </div>
+    <div id="BoardNewTask"><div style="position: relative;top: 18px;font-size: 64px;">Board</div><div style="position: absolute;top: 73px;right: 200px;width: 264px;display: flex;height: 41px;border: 2px solid;border-radius: 10px;"><div ><textarea id="textareaBoard" placeholder="Find Task" name="FindTask" id="FindTask"></textarea></div><div><img src="assets/img/Lupe.png" alt=""></div></div><div><button id="AddTaskButton" onclick="addTask()">Add Task +</button></div></div>
+    <div id="Kanban">
+        <div class="drag-area b1" id="ToDo" ondrop="moveTo('ToDo')" ondragleave="removeHighlight('ToDo')" ondragover="allowDrop(event); highlight('ToDo')"></div>
+        <div class="drag-area" id="InProgress" ondrop="moveTo('InProgress')" ondragleave="removeHighlight('InProgress')" ondragover="allowDrop(event); highlight('InProgress')"></div>
+        <div class="drag-area" id="AwaitFeedback" ondrop="moveTo('AwaitFeedback')" ondragleave="removeHighlight('AwaitFeedback')" ondragover="allowDrop(event); highlight('AwaitFeedback')"></div>
+        <div class="drag-area b2" id="Done" ondrop="moveTo('Done')" ondragleave="removeHighlight('Done')" ondragover="allowDrop(event); highlight('Done')"></div>
+    </div>
+    <div id="modal" style="display: none;background-color: rgba(40, 40, 40, 0.204);">
+        <div style="background-color: #f6f7f8;position: relative;height: 550px;padding: 20px 20px;border-radius: 10px;">
+            <div style="font-size: 30px;">Add Task</div>
+            <div style='display: flex;height: 40px;padding: 20px 0 10px;align-items: center;'><div>Aufgabe</div><div><textarea name="Aufgabe" id="Aufgabe" placeholder="Aufgabe" style="border-radius: 10px; position: absolute;top: 75px;right: 35px;width: 50%;border-bottom-right-radius: 10px;border-top-right-radius: 10px;"></textarea></div></div>
+            <div style='display: flex;height: 40px;padding-bottom: 10px;align-items: center;'><div>Zeitraum</div><div><textarea name="Zeitraum" id="Zeitraum" placeholder="Zeitraum" style="border-radius: 10px; position: absolute;top: 125px;right: 35px;width: 50%;border-bottom-right-radius: 10px;border-top-right-radius: 10px;"></textarea></div></div>
+            <div style='display: flex;height: 40px;padding-bottom: 10px;align-items: center;'><div>Teammitglieder</div><div><textarea name="Teammitglieder" id="Teammitglieder" placeholder="Teammitglieder" style="border-radius: 10px; position: absolute;top: 175px;right: 35px;width: 50%;border-bottom-right-radius: 10px;border-top-right-radius: 10px;"></textarea></div></div>
+            <div style='display: flex;height: 40px;padding-bottom: 10px;align-items: center;'><div>Stichworte</div><div><textarea name="Stichworte" id="Stichworte" placeholder="Stichworte" style="border-radius: 10px; position: absolute;top: 225px;right: 35px;width: 50%;border-bottom-right-radius: 10px;border-top-right-radius: 10px;"></textarea></div></div>
+            <div style='display: flex;height: 40px;padding-bottom: 10px;align-items: center;'><div>Beschreibung</div><div><textarea name="Beschreibung" id="Beschreibung" placeholder="Beschreibung" style="border-radius: 10px; position: absolute;top: 275px;right: 35px;width: 50%;border-bottom-right-radius: 10px;border-top-right-radius: 10px;height: 200px;"></textarea></div></div>
+        </div>
+        <div>Clear<img src="assets/img/close.png" alt="Close Button"></div>
+        <div>Create Task<img src="assets/img/create.png" alt="Create Task Button"></div>
+    </div>
+</body>
+</html>
+
+

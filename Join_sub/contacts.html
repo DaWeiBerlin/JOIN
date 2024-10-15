@@ -1,0 +1,574 @@
+<html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacts</title>
+    <link rel="icon" type="image/x-icon" href="/./assets/img/LogoforFaviconconstruction.svg">
+    <script src="./js/contacts.js"></script>
+    <script src="js/template.js"></script>
+    <link rel="stylesheet" href="styles/boardStyle.css">
+    <script src="js/script.js"></script>
+    <script src="js/header.js"></script>
+    <script>
+        
+
+        let contacts=[{
+            A : [{
+                    Vorname:"Anna",
+                    Nachname:"Schmidt",
+                    Email:"anna.schmidt@gmx.de",
+                    Telefonnummer: "061262733",
+                    Farbe:"Grün",
+                },
+                {
+                    Vorname:"Anita",
+                    Nachname:"Schmidt",
+                    Email:"anita.schmidt@gmx.de",
+                    Telefonnummer: "061262733",
+                    Farbe:"Grün",
+                }],
+            B : [{}],
+            C : [{}],
+            D : [{}],
+            E : [{}],
+            F : [{}],
+            G : [{}],
+            H : [{}],
+            I : [{}],
+            J : [{}],
+            K : [{}],
+            L : [{}],
+            M : [{}],
+            N : [{}],
+            O : [{}],
+            P : [{}],
+            Q : [{}],
+            R : [{}],
+            S : [{}],
+            T : [{}],
+            U : [{}],
+            V : [{}],
+            W : [{}],
+            X : [{}],
+            Y : [{}],
+            Z : [{}],
+            }
+        ]
+        
+        function deleteContact(){
+            document.getElementById("Name").value = ""
+            document.getElementById("Email").value = ""
+            document.getElementById("Phone").value = ""
+            document.getElementById("userText").innerHTML = `<img src='assets/img/Joinlogovector.svg'>`
+        }
+
+        let color;
+        let length;
+        function saveContact(r,color2,div1,div2,div3){
+            document.getElementById("missing").innerHTML = ""
+            let Name = document.getElementById("Name").value
+            let Email = document.getElementById("Email").value
+            let Phone = document.getElementById("Phone").value
+            if(Name != "" || Email != "" || Phone != ""){
+    
+            if(r != null){
+                console.log("Test")
+                postData(`/contacts/${r}`,
+                {
+                    "Name":Name,
+                    "Email":Email,
+                    "Phone":Phone,
+                    "color":color2
+                });
+            } else{
+                postData(`/contacts`,
+                {
+                    "Name":Name,
+                    "Email":Email,
+                    "Phone":Phone,
+                    "color":color
+                });
+            }
+            
+            document.getElementById("Name").value = ""
+            document.getElementById("Email").value = ""
+            document.getElementById("Phone").value = ""
+            document.getElementById("userText").innerHTML = `<img src='assets/img/Joinlogovector.svg'>`
+            
+            loadData('./contacts',div1,div2,div3)
+            if(document.getElementById("contactModal").style.display == "flex"){
+                document.getElementById("contactModal").style.display = "none"
+            }
+        }else{
+            if(document.getElementById("Name").value == ""){
+                document.getElementById("missing").innerHTML += /*html*/`
+                    
+                `;
+            }
+            if(document.getElementById("Email").value == ""){
+                document.getElementById("missing").innerHTML += /*html*/`
+                    
+                `;
+            }
+            if(document.getElementById("Phone").value == ""){
+                document.getElementById("missing").innerHTML += /*html*/`
+                    
+                `;
+            }
+        }
+    }
+
+        async function deleteData(path=""){
+            let response = await fetch(BASE_URL + path + ".json",{
+                method: "DELETE", 
+            });
+            loadData('./contacts')
+            document.getElementById("ContactArea3").innerHTML=""
+            return response = await response.json()
+            
+        }
+        
+        function openContactSheet(){
+            let letters = '0123456789ABCDEF';
+            color = '#';
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            document.getElementById("UserLogo").style.backgroundColor = color
+            document.getElementById("userText").innerHTML = `<img src='assets/img/Joinlogovector.svg'>`
+            document.getElementById("button").innerHTML =`<button style="background-color: white;border: none;" type="submit" onclick="saveContact()"><img id="save" src="assets/img/save.png" alt=""></button>`
+            if(document.getElementById("contactModal").style.display == "none"){
+                document.getElementById("contactModal").style.display = "flex"
+            }
+        }
+
+        function closeb(){
+            document.getElementById("Name").value = ""
+            document.getElementById("Email").value = ""
+            document.getElementById("Phone").value = ""
+            document.getElementById("userText").innerHTML = `<img src='assets/img/Joinlogovector.svg'>`
+            if(document.getElementById("contactModal").style.display == "flex"){
+                document.getElementById("contactModal").style.display = "none"
+            }
+        }
+
+        function changeBorder(container){
+            document.getElementById(container).style.borderBlockColor = "#29abe2"
+        }
+
+        let firstLetter;
+        let secondLetter;
+        let condition2 = true
+        function renderUser(){
+            let userName = document.getElementById("Name").value
+            if(userName.length == 1){
+                condition2 = true
+                firstLetter = ""
+            }
+            if(condition2 == true){
+                firstLetter = userName.charAt(0).toUpperCase()
+                condition2 = false
+            }
+            userName = userName.trimEnd()
+            let last = userName.lastIndexOf(" ")
+            if(last == -1){
+                secondLetter = ""
+            }else{
+                secondLetter = userName.charAt(last+1)
+            } 
+            if(userName.length == 0){
+                firstLetter = ""
+            }
+            if(userName.length == 0){
+                document.getElementById("userText").innerHTML = `<img src='assets/img/Joinlogovector.svg'>`
+            }else{
+                document.getElementById("userText").innerHTML = `${firstLetter}${secondLetter}`
+            }  
+        }
+
+        const BASE_URL = "https://join-49eff-default-rtdb.europe-west1.firebasedatabase.app/"
+        async function loadData(path="",div1,div2,div3){
+            let response = await fetch(BASE_URL + path + ".json")
+            response = await response.json()
+            length = response.length
+            loadContacts(response,div1,div1,div3)
+        }
+
+        
+        const alphabet = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"] 
+        let a = 0
+        let diva = [];
+        let diva2 = [];
+        let diva3 = [];
+        function loadContacts(response,div1,div2,div3) {
+            
+            const array2 = [{}]
+            document.getElementById("contacts").innerHTML = ""
+            for(r in response){
+                response[r]["r"] = r
+                array2.push(response[r])
+            }
+            const groupedData = groupByFirstLetter(array2);
+            let index = 0;
+            for(let i = 0 ; i < alphabet.length;i++){
+                let array3 = []
+                if(groupedData[alphabet[i]] == undefined){
+                    a += 1
+                }else{
+                    document.getElementById("contacts").innerHTML += /*html*/`
+                    <div style="margin-left: 25px;margin-bottom: 15px;">${alphabet[i]}</div>
+                    <hr>
+                    `;
+                    for(let j = 0 ;j < groupedData[alphabet[i]].length;j++){
+                        array3.push(groupedData[alphabet[i]][j])
+                    }
+                }
+                let sortedData = sortArrayByKey(array3, 'Name');
+                
+                for(let k = 0;k < sortedData.length; k++){
+                    console.log(k)
+                    let userName = sortedData[k]["Name"]
+                    if(userName.length == 1){
+                        condition2 = true
+                        firstLetter = ""
+                    }
+                    if(condition2 == true){
+                        firstLetter = userName.charAt(0).toUpperCase()
+                        condition2 = false
+                    }
+                    userName = userName.trimEnd()
+                    let last = userName.lastIndexOf(" ")
+                    if(last == -1){
+                        secondLetter = ""
+                    }else{
+                        secondLetter = userName.charAt(last+1)
+                    } 
+                    if(userName.length == 0){
+                        firstLetter = ""
+                    }
+                    
+                    document.getElementById("contacts").innerHTML += `
+                    <div id="a${index}" style="display:flex;cursor:pointer;" onclick="openContact('${sortedData[k]['color']}','${sortedData[k]['Name']}','${sortedData[k]['Email']}','${sortedData[k]['Phone']}','${sortedData[k]['r']}','a${index}','b${index}','NameLeft${index}')">
+                        <div id="b${index}" class="round" style="background-color:${sortedData[k]["color"]};color:white;"> <div>${firstLetter}${secondLetter}</div></div>
+                        <div style="padding-top:15px">
+                            <div id="NameLeft${index}">${sortedData[k]["Name"]}</div>
+                            <a style="color:#007cee">${sortedData[k]["Email"]}</a>
+                        </div>
+                    </div><br>
+                `;
+                index += 1
+                }
+            }
+            if(div1 != undefined){
+                div2 = `b${div2.slice(1)}`
+                console.log(div2)
+                console.log("Test")
+                console.log(div1)
+                console.log(div2)
+                console.log(div3)
+                if(diva.length > 0){
+                    document.getElementById(diva3[0]).style.color = "black"
+                    document.getElementById(diva[0]).style.backgroundColor = "white"
+                    document.getElementById(diva[0]).style.borderRadius = "10px";
+                    document.getElementById(diva2[0]).style.border = "3px solid white";
+                    diva = []
+                    diva2 = []
+                    diva3 = []
+                }
+                diva.push(div1)
+                diva2.push(div2)
+                diva3.push(div3)
+                document.getElementById(diva3[0]).style.color = "white"
+                document.getElementById(div1).style.backgroundColor = "#2a3647"
+                document.getElementById(div1).style.borderRadius = "10px";
+                document.getElementById(div2).style.border = "3px solid white";
+            }
+        }
+        let divb = [];
+        let divb2 = [];
+        let divb3 = [];
+        function openContact(color,name,email,phone,r,div,div2,div3){
+            console.log(div)
+            console.log(div2)
+            console.log(div3)
+            if(divb.length > 0){
+                document.getElementById(divb3[0]).style.color = "black"
+                document.getElementById(divb[0]).style.backgroundColor = "white"
+                document.getElementById(divb[0]).style.borderRadius = "10px";
+                document.getElementById(divb2[0]).style.border = "3px solid white";
+                divb = []
+                divb2 = []
+                divb3 = []
+            }
+            divb.push(div)
+            divb2.push(div2)
+            divb3.push(div3)
+            document.getElementById(divb3[0]).style.color = "white"
+            document.getElementById(div).style.backgroundColor = "#2a3647"
+            document.getElementById(div).style.borderRadius = "10px";
+            document.getElementById(div2).style.border = "3px solid white";
+            let userName = name
+                    if(userName.length == 1){
+                        condition2 = true
+                        firstLetter = ""
+                    }
+                    if(condition2 == true){
+                        firstLetter = userName.charAt(0).toUpperCase()
+                        condition2 = false
+                    }
+                    userName = userName.trimEnd()
+                    let last = userName.lastIndexOf(" ")
+                    if(last == -1){
+                        secondLetter = ""
+                    }else{
+                        secondLetter = userName.charAt(last+1)
+                    } 
+                    if(userName.length == 0){
+                        firstLetter = ""
+                    }
+            document.getElementById("ContactArea3").innerHTML = `
+                <div id="Contact"><div id="ContactLogo" style="background-color:${color}"><div>${firstLetter}${secondLetter}</div></div><div id="element"><div id="ContactName">${name}</div><div id="div1"><div id="div2" onclick="editer('${color}','${name}','${email}','${phone}','${r}','${div}','${div2}','${div3}')" style="cursor:pointer"><img id="img_size" src="assets/img/Edit.png">Edit</div><div onclick="deleteData('/contacts/${r}')" style="cursor:pointer"><img id="img_size" src="assets/img/delete2.png">Delete</div></div></div></div>
+                <div id="style">Contact Information</div><br>
+                <div id="gapfont">Email</div>   
+                <a style="color:#29abe2;text-decoration:none;" href="mailto:">${email}</a>
+                <div id="gapfont">Phone</div>
+                <div><a href="tel:${phone}">${phone}</a></div>
+            `;     
+        }
+
+        function editer(color,name,email,phone,r,div1,div2,div3){
+            console.log("!")
+            if(document.getElementById("contactModal").style.display == "none"){
+                document.getElementById("contactModal").style.display = "flex"
+            }
+            document.getElementById("UserLogo").style.backgroundColor = color
+            document.getElementById("Name").value = name
+            document.getElementById("Email").value = email
+            document.getElementById("Phone").value = phone
+            document.getElementById("button").innerHTML = `<button style="background-color: white;border: none;" type="submit" onclick="saveContacte('${r}','${color}','${div1}','${div2}','${div3}')"><img id="save" src="assets/img/save.png" alt=""></button>`
+            renderUser()
+        }
+
+        function handleSubmit(event) {
+            event.preventDefault();
+            // Weitere Aktionen hier
+            }
+
+            function saveContacte(a, b, c, d, e) {
+                document.getElementById("missing").innerHTML = ""
+                if(document.getElementById("Name").value != "" ||
+                document.getElementById("Email").value != "" ||
+                document.getElementById("Phone").value != ""){
+
+                
+
+                let color = document.getElementById("UserLogo").style.backgroundColor;
+                let name = document.getElementById("Name").value;
+                let email = document.getElementById("Email").value;
+                let phone = document.getElementById("Phone").value;
+
+                let contactKey = a;
+
+                let url = `https://join-49eff-default-rtdb.europe-west1.firebasedatabase.app/contacts/${contactKey}.json`;
+                console.log(url);
+
+                fetch(url, {
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    method: "PUT",
+                    body: JSON.stringify({
+                        "Name": name,
+                        "Email": email,
+                        "Phone": phone,
+                        "color": color
+                    })
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log("Data successfully updated:", data);
+                    condi = false
+                    loadData('./contacts');
+                    openContact(color,name,email,phone,a,c,d,e)
+                    document.getElementById("ContactArea3").innerHTML = ""
+                    
+                    if(document.getElementById("contactModal").style.display == "flex"){
+                        document.getElementById("contactModal").style.display = "none"
+                    }
+                })
+                .catch(error => {
+                    console.error("Error updating data:", error);
+                });
+                document.getElementById("Name").value = ""
+                document.getElementById("Email").value = ""
+                document.getElementById("Phone").value = ""
+                document.getElementById("userText").innerHTML = `<img src='assets/img/Joinlogovector.svg'>`
+            }else{
+            if(document.getElementById("Name").value == ""){
+                document.getElementById("missing").innerHTML += /*html*/`
+                    
+                `;
+            }
+            if(document.getElementById("Email").value == ""){
+                document.getElementById("missing").innerHTML += /*html*/`
+                    
+                `;
+            }
+            if(document.getElementById("Phone").value == ""){
+                document.getElementById("missing").innerHTML += /*html*/`
+                    
+                `;
+            }
+        }
+        }
+
+
+        function sortArrayByKey(array2, Name){
+            // Filtert das Array, um nur Objekte mit dem angegebenen Schlüssel zu behalten
+            const filteredArr = array2.filter(item => item && item[Name] !== undefined);
+            // Sortiert das gefilterte Array nach dem angegebenen Schlüssel
+            return filteredArr.sort((a, b) => {
+                if (a[Name] < b[Name]) return -1;
+                if (a[Name] > b[Name]) return 1;
+                return 0;
+            });
+        }
+
+        function groupByFirstLetter(array2){
+            return array2.reduce((acc, item) => {
+                if (item && item.Name) {
+                const firstLetter = item.Name[0].toUpperCase(); // Erster Buchstabe, groß geschrieben
+                if (!acc[firstLetter]) {
+                    acc[firstLetter] = []; // Erstellt ein neues Array für den Buchstaben
+                }
+                acc[firstLetter].push(item); // Fügt das Objekt dem Array des Buchstabens hinzu
+                }
+                return acc;
+            }, {});
+            }
+
+        async function postData(path="", data={}){
+            let response = await fetch(BASE_URL + path + ".json",{
+                method: "POST",
+                header: {
+                    "Content-Type":"application/json",
+                },
+                body: JSON.stringify(data)
+            });
+            return response = await response.json()
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+            const imageElement = document.getElementById('divLeft1');
+            const imageElement5 = document.getElementById('Picture1');
+            imageElement.addEventListener('mouseover', function() {
+                imageElement5.src = "assets/img/summary_blue.png";
+                console.log("Hello")
+            });
+            imageElement.addEventListener('mouseout', function() {
+                imageElement5.src = "assets/img/SummaryLogo.png";
+            });
+
+            const imageElement2 = document.getElementById('divLeft2');
+            const imageElement6 = document.getElementById('Picture2');
+            imageElement2.addEventListener('mouseover', function() {
+                imageElement6.src = "assets/img/addTask_blue.png";
+            });
+            imageElement2.addEventListener('mouseout', function() {
+                imageElement6.src = "assets/img/AddTaskLogo.png";
+            });
+
+            const imageElement3 = document.getElementById('divLeft3');
+            const imageElement7 = document.getElementById('Picture3');
+            imageElement3.addEventListener('mouseover', function() {
+                imageElement7.src = "assets/img/board_blue.png";
+            });
+            imageElement3.addEventListener('mouseout', function() {
+                imageElement7.src = "assets/img/BoardLogo.png";
+            });
+
+            const imageElement4 = document.getElementById('divLeft4');
+            const imageElement8 = document.getElementById('Picture4');
+            imageElement4.addEventListener('mouseover', function() {
+                imageElement8.src = "assets/img/contacts_blue.png";
+            });
+            imageElement4.addEventListener('mouseout', function() {
+                imageElement8.src = "assets/img/ContactsLogo.png";
+            });
+        });
+        
+
+    </script>
+</head>
+<body onload="loadData('./contacts')">
+    <div id="Navbar">
+        <div id="LogoLeft"><img src="assets/img/LogoLeft.png" alt="JoinLogo"></div>
+        <div id="NavLeft">
+            <a href="summary.html"><div class="NavGap hover" id="divLeft1"><div><img id="Picture1" src="assets/img/SummaryLogo.png" alt="Summary Logo"></div><div>Summary</div></div></a>
+            <a href="add-task.html"><div class="NavGap hover" id="divLeft2"><div><img id="Picture2" src="assets/img/AddTaskLogo.png" alt="Add Tasks Logo"></div><div style="width: 80px;">Add Task</div></div></a>
+            <a href="board.html"><div class="NavGap hover" id="divLeft3"><div><img id="Picture3" src="assets/img/BoardLogo.png" alt="Board Logo"></div><div>Board</div></div></a>
+            <a href="contacts.html"><div class="NavGap hover" id="divLeft4"><div><img id="Picture4" src="assets/img/ContactsLogo.png" alt="Contacts Logo"></div><div>Contacts</div></div></a>
+        </div>
+        <div id="Impressum">
+            <div style="height: 25px;padding: 10px 68px 4px 68px;"><a style="color: white;text-decoration: none;" href="privacy.html">Privacy Policy</a></div>
+            <div style="height: 25px;padding: 10px 73px 3px 73px;"><a style="color: white;text-decoration: none;" href="legal.html">Legal Notice</a></div>
+        </div>
+    </div>
+    <div id="header">
+        <div>Kanban Project Management Tool</div>
+        <div style="display: flex;align-items: center;"><a href="help.html"><img src="assets/img/help.png" alt=""></a><div id="user" onclick="openArea()"></div></div>
+        <div id="AccountArea" style="display: none;">
+            <div style="margin-bottom: 20px;"><a href="">Account</a></div>
+            <div style="margin-bottom: 20px;"><a href="">Legal Notice</a></div>
+            <div style="margin-bottom: 20px;"><a href="privacy.html">Privacy Policy</a></div>
+            <div onclick="logout()"><a href="index.html">Logout</a></div>
+        </div>
+    </div>
+    <div id="ContactArea">
+        <div id="ContactBook" style="margin: 0 0 0 40px;">
+            <div onclick="openContactSheet()" id="AddNewContactButton">
+                <div><a>Add new contact</a></div>
+                <div><img src="assets/img/addContact.png" alt=""></div>
+            </div>
+            <div id="contacts">
+            </div> 
+        </div>
+    </div>
+    <div id="ContactArea2">
+        <div style="display: flex;margin: 100px 0 0 50px;align-items: center;"><div style="font-size: 60px;font-weight: 600;">Contacts</div><div style="background-color: #29abe2;height: 70px;width: 5px;margin: 0 20px;"></div><div style="font-size: 29px;">Better with a Team</div></div>
+        
+    </div>
+    <div id="ContactArea3">           
+    </div>
+    <div id="contactModal" style="display: none;">
+        <div id="contactSheet">
+            <div id="LeftSideContactSheet">
+                <div style="position: absolute;top: 20%;left: 5%;"><img src="assets/img/Joinlogovector.svg" alt=""></div>
+                <div id="EditContact" style="position: absolute;top: 52%;left: 5%;font-size: calc(52px + 0.1vh);color: white;">Edit Contact</div>
+                <div id="blueLine"></div>
+            </div>
+            <div id="rightSideContactSheet">
+                <div id="UserLogo">
+                    <div onload="display()" id="userText"></div>
+                </div>
+                <div>
+                    <form onsubmit="handleSubmit(event)">
+                        <div id="FillInArea">
+                            <div id="NameContainer"><textarea onclick="changeBorder('NameContainer')" onkeyup="renderUser()" name="Name" id="Name" required></textarea><img class="ContactLogo" src="assets/img/avatar.png" alt="Avatar"></div>
+                            <div id="EmailContainer"><textarea onclick="changeBorder('EmailContainer')" name="Email" id="Email" required></textarea><img class="ContactLogo" src="assets/img/letter.png" alt="Letter"></div>
+                            <div id="PhoneContainer"><textarea onclick="changeBorder('PhoneContainer')" type="tel" name="Phone" id="Phone" required></textarea><img class="ContactLogo" src="assets/img/phone.png" alt="Phone"></div>
+                            <div id="ButtonArea"><a><img onclick="deleteContact()" id="delete" src="assets/img/delete.png" alt=""></a><div id="button"></div></div>
+                        </div>
+                        <div id="missing"></div>
+                        <div onclick="closeb()"><img id="close" src="assets/img/close.png" alt=""></div>
+                    </form>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</body></html>
